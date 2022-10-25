@@ -6,19 +6,19 @@
     "id": 1
   },
   {
-    "nombe": "cafe",
+    "nombe": "cafe con leche",
     "precio": 20,
     "categoria": "bebida",
     "id": 2
   },
   {
-    "nombe": "cafe",
+    "nombe": "cafe chico",
     "precio": 20,
     "categoria": "bebida",
     "id": 3
   },
   {
-    "nombe": "cafe",
+    "nombe": "cafe late",
     "precio": 20,
     "categoria": "bebida",
     "id": 4

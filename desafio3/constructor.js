@@ -89,6 +89,29 @@ class Contenedor {
         }
     }
 
+    async random(id){
+        try {
+            let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
+
+            let dataArchParse = JSON.parse(dataArch)
+           
+            function random (min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            let producto = dataArchParse.random()
+
+            if (producto) {                
+                console.log(producto)
+            } else {               
+                console.log('No se encontro el producto')  
+            }           
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     async getAll(){
         try {
             let dataArch = await fs.promises.readFile(this.ruta, 'utf8')

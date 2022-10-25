@@ -13,14 +13,17 @@ const  port = 8080;
 const contenedor1 = new Contenedor("./productos.json")
 
 app.get ("/productos", (req, res)=>{
-
-
     res.send(
-        `<h2> Productos </h2> 
-        <h3></h3>
-        `) 
+        contenedor1.getAll()
+        ) 
  });
 
- app.listen(port,()=>{
+ app.get ("/productosRandom", (req, res)=>{
+    res.send(
+      contenedor1.random(1, 4)
+    )
+});
+
+ app.listen(port,()=>{ 
     console.log("SERVIDOR ESTA CORRIENDO EN EL PUERTO: "+ port)
 })
