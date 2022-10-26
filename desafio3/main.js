@@ -2,28 +2,28 @@
 
 
 const express = require ("express");
-const server  = require("http");
-const Contenedor = require("./constructor.js");
+const Contenedor = require("./contenedor.js");
 
 const app = express();
 
 const  port = 8080;
 
 
-const contenedor1 = new Contenedor("./productos.json")
+const contenedor1 = new Contenedor("./productos.txt")
 
-app.get ("/productos", (req, res)=>{
+app.get ("/productos", async (req, res)=>{
     res.send(
-        contenedor1.getAll()
+        await contenedor1.getAll()
         ) 
- });
-
- app.get ("/productosRandom", (req, res)=>{
-    res.send(
-      contenedor1.random(1, 4)
-    )
-});
-
- app.listen(port,()=>{ 
-    console.log("SERVIDOR ESTA CORRIENDO EN EL PUERTO: "+ port)
-})
+    });
+    
+    app.get ("/productosRandom", async(req, res)=>{
+        await res.send(
+        const allProducts = contenedor1.getAll()
+        const randon = parseInt (Math.random()*allProducts.length)
+        console.log(randon))    
+    });
+    
+    app.listen(port,()=>{ 
+        console.log("SERVIDOR ESTA CORRIENDO EN EL PUERTO: "+ port)
+    })
