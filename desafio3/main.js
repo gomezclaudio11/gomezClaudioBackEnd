@@ -11,17 +11,21 @@ const  port = 8080;
 
 const contenedor1 = new Contenedor("./productos.txt")
 
+
+    
+
 app.get ("/productos", async (req, res)=>{
     res.send(
         await contenedor1.getAll()
         ) 
     });
     
+
     app.get ("/productosRandom", async(req, res)=>{
-        await res.send(
-        const allProducts = contenedor1.getAll()
-        const randon = parseInt (Math.random()*allProducts.length)
-        console.log(randon))    
+        const allProducts =  await contenedor1.getAll()
+        const random = parseInt (Math.random()*allProducts.length)
+        await res.send(allProducts[random])
+         
     });
     
     app.listen(port,()=>{ 
