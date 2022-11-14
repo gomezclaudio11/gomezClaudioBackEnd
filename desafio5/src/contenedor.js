@@ -2,25 +2,25 @@ const products = [
     {
       nombre: "cafe",
       precio: 20,
-      categoria: "bebida",
+      url: "https://cdn2.iconfinder.com/data/icons/barista/256/barista-icons_caffe-latte-machhiato-512.png",
       id: 1
     },
     {
       nombre: "cafe con leche",
       precio: 20,
-      categoria: "bebida",
+      url: "https://cdn3.iconfinder.com/data/icons/hotel-restaurant-line-vol-1/52/bear__bar__caffe__cup__drink__coffee__tea-512.png",
       id: 2
     },
     {
       nombre: "cafe chico",
       precio: 20,
-      categoria: "bebida",
+      url: "https://cdn0.iconfinder.com/data/icons/pixa-vol-4/160/coffe-cup-512.png",
       id: 3
     },
     {
       nombre: "cafe late",
       precio: 20,
-      categoria: "bebida",
+      url: "https://cdn4.iconfinder.com/data/icons/local-user-interface-1/5000/caffe_area_local_user_interface_display-512.png",
       id: 4
     }
   ]
