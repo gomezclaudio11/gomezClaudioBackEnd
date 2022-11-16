@@ -7,27 +7,36 @@
   <header>
     <%- include('../partials/header'); %>
   </header>
-  <h1>Historial</h1>
+
   <div class="jumbotron">
-    <h1>Historial</h1>
+  <h1>Historial</h1>
+  <% if (productos.length && productos.length != 0) { %>
+    
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Nombre</th>
-          <th scope="col">Preio</th>
+          <th scope="col">Precio</th>
           <th scope="col">Foto</th>
         </tr>
       </thead>
       <tbody>
+    
+    <% productos.forEach((producto) => { %>
         <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>10</td>
+          <td><%= producto.nombre %></td>
+          <td><%= producto.precio %></td>
+          <td><img style= "height: 40px;" src=<%= producto.url %>> </td>
         </tr>
-  
+        <% }); %>
        
       </tbody>
     </table>
+
+    <% } else { %>
+      <h3>No se encontraron productos</h3>
+    <% } %>
+
   </div>
 </body>
 </html>

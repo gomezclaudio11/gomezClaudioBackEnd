@@ -21,7 +21,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-    res.render('pages/products', {});
+    const productsList = productContenedor.getAll()
+    res.render('pages/products', {list: productsList});
   });
 
 app.post('/products', (req, res) => {
