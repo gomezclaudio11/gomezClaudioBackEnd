@@ -14,16 +14,16 @@ const productContenedor = new ProductContenedor();
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Servidor iniciado en el puerto ${PORT}`));
 
-/*
+
 app.get('/', (req, res) => {
    // ProductContenedor.save(req.body);
     const personList = [];
   res.render('pages/index', { list: personList });
 });
-*/
+
 app.get('/products', (req, res) => {
-  const productos = productContenedor.getAll()
-  res.render('pages/products', {list: productos});
+  const productsList = productContenedor.getAll()
+  res.render('pages/products', {productos: productsList});
 });
 
 app.post('/products', (req, res) => {
