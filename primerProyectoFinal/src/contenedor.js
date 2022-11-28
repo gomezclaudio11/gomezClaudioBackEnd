@@ -1,29 +1,41 @@
 const products = [
-    {
-      nombre: "cafe",
-      precio: 20,
-      categoria: "bebida",
-      id: 1
-    },
-    {
-      nombre: "cafe con leche",
-      precio: 20,
-      categoria: "bebida",
-      id: 2
-    },
-    {
-      nombre: "cafe chico",
-      precio: 20,
-      categoria: "bebida",
-      id: 3
-    },
-    {
-      nombre: "cafe late",
-      precio: 20,
-      categoria: "bebida",
-      id: 4
-    }
-  ]
+  {
+    nombre: "cafe",
+    precio: 20,
+    url: "https://cdn2.iconfinder.com/data/icons/barista/256/barista-icons_caffe-latte-machhiato-512.png",
+    descripcion: "Delicioso cafe colombiano", 
+    stock:32,
+    codigo: 123,
+    id: 1
+  },
+  {
+    nombre: "cafe con leche",
+    precio: 20,
+    url: "https://cdn3.iconfinder.com/data/icons/hotel-restaurant-line-vol-1/52/bear__bar__caffe__cup__drink__coffee__tea-512.png",
+    descripcion: "Un clasico porteño",
+    stock: 15,
+    codigo: 456,
+    id: 2
+  },
+  {
+    nombre: "cafe chico",
+    precio: 20,
+    url: "https://cdn0.iconfinder.com/data/icons/pixa-vol-4/160/coffe-cup-512.png",
+    descripcion: "Degusta un cafe al paso",
+    stock: 19,
+    codigo: 789,
+    id: 3
+  },
+  {
+    nombre: "cafe late",
+    precio: 20,
+    url: "https://cdn4.iconfinder.com/data/icons/local-user-interface-1/5000/caffe_area_local_user_interface_display-512.png",
+    descripcion: "Una delicia que te traera buenos momentos",
+    stock: 33,
+    codigo: 159,
+    id: 4
+  }
+]
 
 
 

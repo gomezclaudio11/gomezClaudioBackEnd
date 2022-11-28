@@ -24,8 +24,8 @@ productRouter.post ("/",  (req, res)=>{
     console.log("crear un producto", req.body);
     const productId = productContenedor.save(req.body);
     res.json({
+        id: productId,
         ...req.body,
-        id: productId
     });
 });
 
