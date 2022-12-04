@@ -37,9 +37,6 @@ productRouter.put ("/:id",  (req, res)=>{
 productRouter.delete ("/:id",  (req, res)=>{
     productContenedor.deleteById(req.params.id);
     res.json({message: "producto borrado"})
-});
-  
-
-  
+});  
 
 module.exports = productRouter;

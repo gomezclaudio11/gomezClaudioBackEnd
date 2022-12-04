@@ -6,7 +6,8 @@ const products = [
     descripcion: "Delicioso cafe colombiano", 
     stock:32,
     codigo: 123,
-    id: 1
+    id: 1,
+    timestamp: Date.now()
   },
   {
     nombre: "cafe con leche",
@@ -15,7 +16,8 @@ const products = [
     descripcion: "Un clasico porteño",
     stock: 15,
     codigo: 456,
-    id: 2
+    id: 2,
+    timestamp: Date.now()
   },
   {
     nombre: "cafe chico",
@@ -24,7 +26,8 @@ const products = [
     descripcion: "Degusta un cafe al paso",
     stock: 19,
     codigo: 789,
-    id: 3
+    id: 3,
+    timestamp: Date.now()
   },
   {
     nombre: "cafe late",
@@ -33,15 +36,20 @@ const products = [
     descripcion: "Una delicia que te traera buenos momentos",
     stock: 33,
     codigo: 159,
-    id: 4
+    id: 4,
+    timestamp: Date.now()
   }
 ]
 
+const carrito = [
+{id: 1}
+]
 
 
 class ProductContenedor {
     constructor(){
         this.products = products;
+        this.carrito = carrito;
     }
 
      save(product){
@@ -56,6 +64,20 @@ class ProductContenedor {
         return lastId +1;
     }
 
+    
+    saveCarrito(carrit){
+      carrit.id = this.getIdCarrito ();
+      this.carrito.push(carrit);
+      return carrit.id;
+      }
+  
+    getIdCarrito (){
+      const lastProduct= this.carrito[this.carrito.length - 1];
+      const lastId = lastProduct.id;
+      return lastId +1;
+  }
+
+
     getById (id){
         const product = this.products.find((item) => item.id === parseInt(id));
         if(!product)
@@ -66,12 +88,24 @@ class ProductContenedor {
     getAll(){
         return this.products;
     }
+
+    
+    getAllCarrito(){
+      return this.carrito;
+  }
     
     deleteById(id) {
         const productIndex = this.products.findIndex((item) => item.id === parseInt(id));
     this.products.splice(productIndex, 1);
     return ;
    }
+
+   deleteByIdCarrito(id) {
+    const productIndex = this.carrito.findIndex((item) => item.id === parseInt(id));
+    this.carrito.splice(productIndex, 1);
+    return ;
+  }
+
    deleteAll(){
     this.products= [];
     return;
