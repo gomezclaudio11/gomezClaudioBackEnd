@@ -6,11 +6,8 @@ const carritoRouter = Router ();
 const productContenedor = new ProductContenedor();
 
 carritoRouter.post ("/",  (req, res)=>{
-    const carritId = productContenedor.saveCarrito(req.body);
-    res.json({
-        ...req.body,
-        id: carritId
-    })
+    const id = productContenedor.saveCarrito({ productos: [] });
+    res.json({ id: id })
 });
 
 carritoRouter.get ("/:id/productos",  (req, res)=>{ 
@@ -30,12 +27,12 @@ carritoRouter.get ("/",  (req, res)=>{
  */
 
 carritoRouter.post ("/:id/productos", (req, res)=>{
-
+    const productoCarrito = productContenedor.updateCarrito(req.params.id, req.body)
+   res.json ({ productoCarrito })
 });
 
 carritoRouter.delete ("/:id/productos/:id_prod", (req, res)=>{
     productContenedor.deleteByIdCarrito(req.params.id);
-    productContenedor.deleteById(req.params.id);
     res.json({message: "Producto eliminado"})
 });
 

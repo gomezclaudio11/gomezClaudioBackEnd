@@ -42,9 +42,53 @@ const products = [
 ]
 
 const carrito = [
-{id: 1}
+{
+  id: 1,
+  productos: [
+    {
+      title: "pizza",
+      price:"50",
+      thumbnail: "https://imagen.com ",
+      id: 1
+    },
+    {
+      title: "empanada",
+      price:"50",
+      thumbnail: "https://imagen.com ",
+      id: 2
+    },
+    {
+      title: "cerveza",
+      price:"50",
+      thumbnail: "https://imagen.com ",
+      id: 3
+    }
+  ]
+},
+{
+  id: 2,
+  productos: [
+    {
+      title: "pizza napo",
+      price:"50",
+      thumbnail: "https://imagen.com ",
+      id: 4
+    },
+    {
+      title: "empanada j y q",
+      price:"50",
+      thumbnail: "https://imagen.com ",
+      id: 5
+    },
+    {
+      title: "cerveza",
+      price:"50",
+      thumbnail: "https://imagen.com ",
+      id: 6
+    }
 ]
-
+}
+]
 
 class ProductContenedor {
     constructor(){
@@ -101,7 +145,8 @@ class ProductContenedor {
    }
 
    deleteByIdCarrito(id) {
-    const productIndex = this.carrito.findIndex((item) => item.id === parseInt(id));
+    const carritoIndex = this.carrito.findIndex((item) => item.id === parseInt(id));
+    const productIndex = carritoIndex.findIndex((item)=> item.id === parseInt(id))
     this.carrito.splice(productIndex, 1);
     return ;
   }
@@ -115,6 +160,12 @@ class ProductContenedor {
     const productIndex = this.products.findIndex((item) => item.id === parseInt(id));
     this.products.splice(productIndex, 1, { id: parseInt(id), ...product });
     return ;
+}
+
+updateCarrito (id, product){
+  const productIndex = this.carrito.findIndex((item) => item.id === parseInt(id));
+  this.carrito.splice(productIndex, 1, { id: parseInt(id), ...product });
+  return ;
 }
 }
 

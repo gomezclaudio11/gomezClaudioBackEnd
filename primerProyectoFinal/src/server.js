@@ -6,12 +6,14 @@ const carritoRouter = require ("./router/carrito");
 const app = express();
 const port = 8080;
 
+const esAdmin = true
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/products', administrador, productRouter);
+app.use('/api/products', esAdministrador, productRouter);
 
-app.use("/api/carrito", administrador, carritoRouter)
+app.use("/api/carrito", esAdministrador, carritoRouter)
 
 app.use(express.json())
 
@@ -24,8 +26,8 @@ app.on('error', (error) => {
 })
 ;
 
-let administrador = (req, res, next) => {
-  if(!req){
+function esAdministrador  (req, res, next)  {
+  if(!esAdmin){
     res.json({
       error: "ruta no especifica"
     }).status(404);
