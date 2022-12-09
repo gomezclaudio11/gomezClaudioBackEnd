@@ -1,0 +1,20 @@
+<script>
+    console.log("js en el cliente");
+    const socket = io();
+
+    socket.on("products",(products)=>{
+        console.log({ products });
+        const productListHTML = products.map(productItems => `
+        <tr>
+              <th scope="col">${productItems.nombre}</th>
+              <th scope="col">${productItems.precio}</th>
+              <th scope="col">
+                <img src = ${productItems.url} style="height: 40px"/>
+                </th>
+            </tr>
+        `).join("");
+        const productList = document.getElementById ("productList")
+        productList.innerHTML = productListHTML;
+    });
+
+</script>
