@@ -22,7 +22,7 @@ const createProductTable = async () => {
 
 const createMessageTable = async () => {
   try {
-    const database = knex(sqliteConnection);
+    const database = knex(mysqlConnection);
     await database.schema.dropTableIfExists('mensajes');
   
     await database.schema.createTable('mensajes', (table) => {

@@ -12,7 +12,7 @@ const io = new IOServer(httpServer)
 io.on('connection', (socket) => {
     console.log('socket id: ', socket.id);
   
-    socket.emit('products', productContenedor.getAll());
+    socket.emit('products', productContenedorSQL.getAll());
     
     socket.emit('conversation', messages);
     socket.on('new-message', (newMessage) => {
@@ -34,8 +34,12 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 
-const ProductContenedor = require("./src/contenedores/ProductContenedor");
-const productContenedor = new ProductContenedor();
+//const ProductContenedor = require("./src/contenedores/ProductContenedor");
+//const productContenedor = new ProductContenedor();
+
+const mysqlConnection = require('./database/mysqlConnection');
+const ProductContenedorSQL = require ("./src/contenedores/ProductContenedorSQL");
+const productContenedorSQL = new ProductContenedorSQL(mysqlConnection, 'productos');
 
 const PORT = 8080;
 httpServer.listen(PORT, () => console.log(`Servidor iniciado en el puerto ${PORT}`));
@@ -50,13 +54,13 @@ app.get('/', (req, res) => {
 app.post('/products', (req, res) => {
     console.log(req.body);
     productContenedor.save(req.body);
-    io.sockets.emit("products", productContenedor.getAll())
+    io.sockets.emit("products", productContenedorSQL.getAll())
     res.redirect('/'); 
   }); 
 
 app.get('/products', (req, res) => {
     console.log(req.body)
-    productContenedor.getAll()
+    productContenedorSQL.getAll()
     res.json();
 });
 

@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const mysqlConnection = require('../../database/mysqlConnection');
-const ProductContenedorSQL = require('../contenedores/PrductContenedorSQL');
+const ProductContenedorSQL = require('../contenedores/ProductContenedorSQL');
 
 const productRouter = Router();
 
