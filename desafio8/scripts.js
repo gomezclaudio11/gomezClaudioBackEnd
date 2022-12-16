@@ -35,37 +35,44 @@ db.mensajes.find()
 
 //9 mostrar la cantidad de documentos
 
-db.productos.estimatedDocumentCount();
-db.mensajes.estimatedDocumentCount();
+//db.productos.estimatedDocumentCount();
+//db.mensajes.estimatedDocumentCount();
+db.productos.find().count();
+db.mensajes.find().count();
 
 //punto 5.A
 
 db.productos.insertOne({ nombre: 'te helado', precio: 280 });
 
 //5.B.1
-db.productos.find({'precio': {$lte: 1000}})
+db.productos.find({'precio': {$lt: 1000}})
 
 //5.B.2
-db.productos.find({$or: [{'precio': 1000}, {'precio': 3000}]})
+db.productos.find({'precio': {$gte: 1000, $lte: 3000}})
 
 //5.B.3
 db.productos.find({'precio': {$gte: 3000}})
 
 //5.B.4
 //LOS ORDENO
-db.productos.find().sort({precio: 1})
-//TRAIGO EL NOMBRE
-ecommerce> db.productos.find({'nombre': {$in:['cafe chico']}})
+db.productos.find().sort({precio: 1}).skip(2).limit(1)
+
+//explicacion del profe
+//.sort ordena, concatenamos un .skip para saltarnos dos resultados y con .limit le decimos
+// que nos muestre solo uno, o sea que nos mostrara solo el tercero
 
 //5.C
 //actualizacion id x id de los productos agragando stock
-db.productos.update({_id: ObjectId("63971347db8f1d5b725eba33")}, {$set: {'stock': 100}})
+db.productos.updateMany({}, {$set: {'stock': 100}})
 
 //5.D
 //cambiar stock a 0 de los productos mayores a 400
-//NO ME FUNCIONA
-db.productos.findOneAndUpdate({'precio': {$gte: 400}}, {set: {'stock': 0}}, {returnNewDocument: true})
+
+db.productos.updateMany({precio: {$gte: 400}}, {set: {stock: 0}})
 
 //5.E
 //borrar los productos con precio menor a 100
-db.productos.findOneAndDelete
+db.productos.deleteMany({price: {$lt:1000}})
+
+//6 Crear un usuario 'pepe' clave: 'asd456' que sólo pueda leer la base de datos ecommerce.
+db.createUser({ user: "pepe",pwd: "asd456", roles: [{ role: "read", db: "ecommerce"}]})
