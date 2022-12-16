@@ -1,6 +1,18 @@
 const knex = require('knex');
-const mysqlConnection = require('./mysqlConnection');
-const sqliteConnection = require('./sqliteConnection');
+
+//mi sql conection + create tables
+const mysqlConnection = {
+    client: 'mysql',
+    connection: {
+      host : '127.0.0.1',
+      port : 3306,
+      user : 'root',
+      password : '',
+      database : 'ecommerce'
+    }
+  };
+  
+  module.exports = mysqlConnection;
 
 const createProductTable = async () => {
   try {
@@ -22,14 +34,14 @@ const createProductTable = async () => {
 
 const createMessageTable = async () => {
   try {
-    const database = knex(sqliteConnection);
+    const database = knex(mysqlConnection);
     await database.schema.dropTableIfExists('mensajes');
   
     await database.schema.createTable('mensajes', (table) => {
       table.increments('id').primary()
       table.string('email', 50).notNullable()
       table.string('text', 255)
-      table.timestamps('date')
+      table.timestamps()
     });
   
     console.log('TABLE mensajes created');
@@ -42,5 +54,4 @@ const createTables = async () => {
   await createProductTable();
   await createMessageTable();
 }
-
 createTables();

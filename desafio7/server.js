@@ -2,6 +2,7 @@ const express = require('express')
 const { Server: HttpServer } = require('http')
 const { Server: IOServer } = require('socket.io')
 const productRouter = require("./src/routers/products")
+const messagesRouter = require("./src/routers/messages")
 
 const app = express()
 const httpServer = new HttpServer(app)
@@ -65,3 +66,4 @@ app.get('/products', (req, res) => {
 });
 
 app.use("/api/products", productRouter);
+app.use("/api/messages", messagesRouter);

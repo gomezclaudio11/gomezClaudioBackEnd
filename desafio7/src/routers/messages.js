@@ -1,43 +1,42 @@
 const { Router } = require('express');
 
-const mysqlConnection = require('../../database/mysqlConnection');
 const sqliteConnection = require('../../database/sqliteConnection');
 const ProductContenedorSQL = require('../contenedores/ProductContenedorSQL');
 
-const productRouter = Router();
+const messagesRouter = Router();
 
 const productContenedorSQL = new ProductContenedorSQL(sqliteConnection, 'mensajes');
 
-productRouter.get('/', async (req, res) => {
-    const productList = await productContenedorSQL.getAll();
-    res.json(productList)
+messagesRouter.get('/', async (req, res) => {
+    const messagesList = await productContenedorSQL.getAll();
+    res.json(messagesList)
   });
   
-  productRouter.get('/:id', async (req, res) => {
-    let productList = {};
+  messagesRouter.get('/:id', async (req, res) => {
+    let messagesList = {};
     if (req.params.id) {
-      productList = await productContenedorSQL.getById(req.params.id);
+      messagesList = await productContenedorSQL.getById(req.params.id);
     }
-    res.json(productList)
+    res.json(messagesList)
   });
   
-  productRouter.post('/', async (req, res) => {
-    const productId = await productContenedorSQL.save(req.body);
-    res.json(productId)
+  messagesRouter.post('/', async (req, res) => {
+    const messageId = await productContenedorSQL.save(req.body);
+    res.json(messageId)
   });
   
-  productRouter.delete('/:id', async (req, res) => {
+  messagesRouter.delete('/:id', async (req, res) => {
     if (req.params.id) {
       await productContenedorSQL.deleteById(req.params.id);
     }
     res.json({ message: `${req.params.id} deleted succesfully`});
   });
   
-  productRouter.put('/:id', async (req, res) => {
+  messagesRouter.put('/:id', async (req, res) => {
     if (req.params.id) {
       await productContenedorSQL.update(req.params.id, req.body);
     }
     res.json({ message: `${req.params.id} updated succesfully`});
   });
   
-  module.exports = productRouter;
+  module.exports = messagesRouter;
