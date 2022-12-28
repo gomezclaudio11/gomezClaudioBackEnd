@@ -1,3 +1,4 @@
+/*
 const knex = require('knex');
 
 //mi sql conection + create tables
@@ -55,41 +56,17 @@ const createTables = async () => {
   await createMessageTable();
 }
 createTables();
+*/
 
 //mongoose
-import mongoose from 'mongoose';
-
-CRUD()
-
-async function CRUD() {
-    try{
-        const URL = "mongodb+srv://ecommerce:ecommerce@cluster0.e0dov1u.mongodb.net/?retryWrites=true&w=majority"
-        let rta = await mongoose.connect(URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
-        console.log ("BASE DE DATOS CONECTADA")
-    }
-    catch(error){
-        console.log(error);
-    }
+export default {
+  mongodb: {
+      url: 'mongodb://localhost/ecommerce',
+      options: {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useCreateIndex: true,
+          serverSelectionTimeoutMS: 5000,
+      }
+  }
 }
-
-const productosCollection = "productos";
-
-const productoSchema = new mongoose.Schema({
-    nombre: {type: String, require: true, max: 100},
-    precio: {type: Number, require: true, max: 100},
-    stock: {type: Number, require: true, max: 100},
-})
-
-export const usuarios = mongoose.model (productosCollection, productoSchema)
-
-const mensajesCollection = "mensajes";
-
-const mensajeSchema = new mongoose.Schema({
-    nombre: {type: String, require: true, max: 100},
-    mensaje: {type: String, require: true, max: 100},
-})
-
-export const mensajes = mongoose.model (mensajesCollection, mensajeSchema)
