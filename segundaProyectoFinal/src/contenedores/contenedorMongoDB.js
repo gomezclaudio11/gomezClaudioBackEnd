@@ -1,15 +1,12 @@
 import mongoose from 'mongoose'
-import config from '../../config'
+import config from '../../config.js'
 
 await mongoose.connect(config.mongodb.url, config.mongodb.options)
 
 class ContenedorMongoDb {
 
     constructor(nombreColeccion, esquema) {
-        this.coleccion = mongoose.model(nombreColeccion, esquema) // definimos el nombre de la collecion y el modelo: 
-                                                                    // en el DAO de productos la colleccion sera 'productos'
-                                                                    // en el DAO de carritos la colleccion sera 'carritos'
-                                                                    // los esquemas (schemas) tambien seran definidos en los DAOs al momento de instanciarse
+        this.coleccion = mongoose.model(nombreColeccion, esquema) 
     }
 
 

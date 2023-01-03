@@ -61,11 +61,11 @@ createTables();
 //mongoose
 export default {
   mongodb: {
-      url: 'mongodb://localhost/ecommerce',
+      url: 'mongodb://localhost/e-commerce',
       options: {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          useCreateIndex: true,
+          //useNewUrlParser: true,
+          //useUnifiedTopology: true,
+          //useCreateIndex: true,
           serverSelectionTimeoutMS: 5000,
       }
   }

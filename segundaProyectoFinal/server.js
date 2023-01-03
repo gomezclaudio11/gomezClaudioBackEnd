@@ -1,10 +1,20 @@
-const express = require('express')
+import  express from "express";
 const app = express()
 const { Router } = express
 
-const PORT = 8080
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+//administradores
+const esAdmin = true
+
+function soloAdministradores(req, res, next) {
+    if (!esAdmin) {
+        res.json({ message: 'Usuario no autorizado' })
+    } else {
+        next()
+    }
+}
 
 //router
 const productosRouter = new Router()
@@ -12,8 +22,8 @@ const carritosRouter = new Router()
 app.use('/api/productos', productosRouter)
 app.use('/api/carritos', carritosRouter)
 
-import ProductosDaoMongoDb from './src/daos/productos/productoDaoMongoDB'  
-import CarritosDaoMongoDb from './src/daos/carritos/carritosDaoMongoDB'
+import ProductosDaoMongoDb from './src/daos/productos/productoDaoMongoDB.js'  
+import CarritosDaoMongoDb from './src/daos/carritos/carritosDaoMongoDB.js'
 
 const productosDao = new ProductosDaoMongoDb() // se instancia el DAO de productos
 const carritosDao = new CarritosDaoMongoDb() 
@@ -91,9 +101,9 @@ carritosRouter.delete('/:id/productos/:idProd', async (req, res) => {
 })
 
 //server
+const PORT = 8080
 const server = app.listen(PORT, () => {
     console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
 })
 server.on('error', error => console.log(`Error en servidor ${error}`))
 
-module.exports = app

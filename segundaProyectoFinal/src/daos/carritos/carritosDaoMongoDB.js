@@ -1,4 +1,4 @@
-import ContenedorMongoDb from "../../contenedores/contenedorMongoDB"
+import ContenedorMongoDb from "../../contenedores/contenedorMongoDB.js"
 
 class CarritosDaoMongoDb extends ContenedorMongoDb {
 
