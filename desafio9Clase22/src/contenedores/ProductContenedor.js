@@ -72,4 +72,4 @@ class ProductContenedor {
 }
 }
 
-module.exports = ProductContenedor
+export default ProductContenedor

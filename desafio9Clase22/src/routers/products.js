@@ -1,7 +1,7 @@
-const { Router } = require('express');
+import Router from 'express';
 
-const mysqlConnection = require('../../database/mysqlConnection');
-const ProductContenedorSQL = require('../contenedores/ProductContenedorSQL');
+import mysqlConnection from '../../database/mysqlConnection.js';
+import ProductContenedorSQL from '../contenedores/ProductContenedorSQL.js';
 
 const productRouter = Router();
 
@@ -39,4 +39,4 @@ productRouter.put('/:id', async (req, res) => {
   res.json({ message: `${req.params.id} updated succesfully`});
 });
 
-module.exports = productRouter;
+export default productRouter;

@@ -1,7 +1,7 @@
-const { Router } = require('express');
+import Router from 'express';
 
-const sqliteConnection = require('../../database/sqliteConnection');
-const ProductContenedorSQL = require('../contenedores/ProductContenedorSQL');
+import sqliteConnection from '../../database/sqliteConnection.js';
+import ProductContenedorSQL from '../contenedores/ProductContenedorSQL.js';
 
 const messagesRouter = Router();
 
@@ -39,4 +39,4 @@ messagesRouter.get('/', async (req, res) => {
     res.json({ message: `${req.params.id} updated succesfully`});
   });
   
-  module.exports = messagesRouter;
+  export default messagesRouter;

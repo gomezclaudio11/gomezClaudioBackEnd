@@ -1,14 +1,13 @@
 import express from 'express'
-const { Server: HttpServer } = require('http')
-//const { Server: IOServer } = require('socket.io')
-const productRouter = require("./src/routers/products")
-const messagesRouter = require("./src/routers/messages")
-
+import http from 'http'
+import { Server, Socket} from 'socket.io'
+import productRouter from "./src/routers/products.js"
+import messagesRouter from "./src/routers/messages.js"
 const app = express()
-const httpServer = new HttpServer(app)
+const server = http.Server(app)
 
-/*
-const io = new IOServer(httpServer)
+
+const io = new Server(server)
 io.on('connection', (socket) => {
     console.log('socket id: ', socket.id);
   
@@ -27,7 +26,7 @@ io.on('connection', (socket) => {
     { mail: 'grillo@gmail.com', text: 'todo bien?'},
     { mail: 'pepe@gmail.com', text: 'Si, todo bien!'}
   ]
-*/
+
 
 app.use (express.urlencoded({ extended: true}));
 
@@ -35,15 +34,15 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 
-const ProductContenedor = require("./src/contenedores/ProductContenedor");
+import ProductContenedor from "./src/contenedores/ProductContenedor.js";
 const productContenedor = new ProductContenedor();
 
-const mysqlConnection = require('./database/mysqlConnection');
-const ProductContenedorSQL = require ("./src/contenedores/ProductContenedorSQL");
+import mysqlConnection from './database/mysqlConnection.js';
+import ProductContenedorSQL from "./src/contenedores/ProductContenedorSQL.js";
 const productContenedorSQL = new ProductContenedorSQL(mysqlConnection, 'productos');
 
 const PORT = 8080;
-httpServer.listen(PORT, () => console.log(`Servidor iniciado en el puerto ${PORT}`));
+server.listen(PORT, () => console.log(`Servidor iniciado en el puerto ${PORT}`));
 
 
 app.get('/', (req, res) => {

@@ -1,6 +1,6 @@
-const knex = require('knex');
-const mysqlConnection = require('./mysqlConnection');
-const sqliteConnection = require('./sqliteConnection');
+import knex from 'knex';
+import mysqlConnection from './mysqlConnection.js';
+import sqliteConnection from './sqliteConnection.js';
 
 const createProductTable = async () => {
   try {

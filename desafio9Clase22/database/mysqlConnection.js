@@ -9,4 +9,4 @@ const mysqlConnection = {
     }
   };
   
-  module.exports = mysqlConnection;
+  export default mysqlConnection;

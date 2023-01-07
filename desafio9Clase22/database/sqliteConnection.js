@@ -5,4 +5,4 @@ const sqliteConnection = {
     }
   };
   
-  module.exports = sqliteConnection;
+  export default sqliteConnection;
