@@ -6,6 +6,8 @@ import messagesRouter from "./src/routers/messages.js"
 const app = express()
 const server = http.Server(app)
 
+import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
+const contenedorMensajeMongo = new ContenedorMensajeMongoDb
 
 const io = new Server(server)
 io.on('connection', async (socket) => {
@@ -16,7 +18,7 @@ io.on('connection', async (socket) => {
     socket.emit('conversation', messages);
     socket.on('new-message', (newMessage) => {
     console.log({newMessage});
-    messages.push(newMessage);
+    messages.contenedorMensajeMongo.save(newMessage);
     io.sockets.emit('conversation', messages);
     });
   });

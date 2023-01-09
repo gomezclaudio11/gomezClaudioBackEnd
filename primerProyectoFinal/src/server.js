@@ -60,3 +60,12 @@ productosRouter.post ("/", esAdministrador, async (req, res) =>{
 productosRouter.put('/:id', esAdministrador, async (req, res) => {
   res.json(await contenedorProductos.update(req.body, req.params.id))
 })
+
+productosRouter.delete("/:id", esAdministrador, async (req, res)=>{
+  res.json(await contenedorProductos.deleteById(req.params.id))
+})
+
+//rutas carrito
+carritosRouter.get('/', async (req, res) => {
+  res.json((await contenedorCarritos.getAll()).map(c => c.id))
+})

@@ -1,14 +1,5 @@
 [
   {
-    "nombre": "cafe",
-    "precio": 20,
-    "url": "https://cdn2.iconfinder.com/data/icons/barista/256/barista-icons_caffe-latte-machhiato-512.png",
-    "descripcion": "Delicioso cafe colombiano",
-    " stock": 32,
-    " codigo": 123,
-    "id": 1
-  },
-  {
     "nombre": "cafe con leche",
     "precio": 20,
     "url": "https://cdn3.iconfinder.com/data/icons/hotel-restaurant-line-vol-1/52/bear__bar__caffe__cup__drink__coffee__tea-512.png",

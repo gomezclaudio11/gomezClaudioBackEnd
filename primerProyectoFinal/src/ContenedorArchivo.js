@@ -42,7 +42,22 @@ class ContenedorArchivo {
     }
   }
 
-  
+  async deleteById(id) {
+    const objs = await this.getAll()
+    const index = objs.findIndex(o => o.id == id)
+    if (index == -1) {
+        throw new Error(`Error al borrar: no se encontró el id ${id}`)
+    }
+
+    objs.splice(index, 1)
+    try {
+        await fs.writeFile(this.ruta, JSON.stringify(objs, null, 2))
+    } catch (error) {
+        throw new Error(`Error al borrar: ${error}`)
+    }
+}
+
+
 }
 
 module.exports = ContenedorArchivo
