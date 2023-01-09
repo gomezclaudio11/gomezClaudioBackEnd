@@ -8,10 +8,10 @@ const server = http.Server(app)
 
 
 const io = new Server(server)
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
     console.log('socket id: ', socket.id);
   
-    socket.emit('products', productContenedorSQL.getAll());
+    socket.emit('products', await productContenedorSQL.getAll());
     
     socket.emit('conversation', messages);
     socket.on('new-message', (newMessage) => {
@@ -22,9 +22,18 @@ io.on('connection', (socket) => {
   });
 
   const messages = [
-    { mail: 'pepe@gmail.com', text: 'Hola'},
-    { mail: 'grillo@gmail.com', text: 'todo bien?'},
-    { mail: 'pepe@gmail.com', text: 'Si, todo bien!'}
+    { 
+      author: {
+          id: 'mail del usuario', 
+          nombre: 'nombre del usuario', 
+          apellido: 'apellido del usuario', 
+          edad: 'edad del usuario', 
+          alias: 'alias del usuario',
+          avatar: 'url avatar (foto, logo) del usuario'
+      },
+      text: 'mensaje del usuario'
+  }
+  
   ]
 
 
@@ -54,7 +63,7 @@ app.get('/', (req, res) => {
 app.post('/products', (req, res) => {
     console.log(req.body);
     productContenedor.save(req.body);
-    //io.sockets.emit("products", productContenedorSQL.getAll())
+    io.sockets.emit("products", productContenedorSQL.getAll())
     res.redirect('/'); 
   }); 
 
@@ -66,7 +75,7 @@ app.get('/products', (req, res) => {
 
 //fackers
 import { faker } from '@faker-js/faker'
-faker.locale = "ar"
+faker.locale = "es_MX"
 
 let id = 1
 function getNextId() {

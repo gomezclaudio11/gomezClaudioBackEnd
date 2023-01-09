@@ -11,9 +11,9 @@
     <div class="jumbotron">
       <h1>Ingrese producto</h1>
       <form action="/products" method="post">
-        <input type="text" name="nombre" placeholder="Ingrese nombre" id="">
-        <input type="text" name="precio" placeholder="Ingrese precio" id="">
-        <input type="text" name="url" placeholder="Foto url" id="">
+        <input type="text" name="title" placeholder="Ingrese nombre" id="">
+        <input type="text" name="price" placeholder="Ingrese precio" id="">
+        <input type="text" name="thumbnail" placeholder="Foto url" id="">
         <input type="submit" value="Enviar">
       </form>
     </div>  
@@ -35,8 +35,13 @@
         <h1>CHAT</h1>      
         <h4>Crear nuevo mensaje: </h4>
         <form id="form">
-          <input placeholder='E-Mail' type="text" name="mail" id="mail">
-          <input placeholder='Mensaje' type="text" name="text" id="text">
+          <input placeholder='email' type="text" name="id" id="id">
+          <input placeholder='nombre' type="text" name="name" id="name">
+          <input placeholder='apellido' type="text" name="surname" id="surname">
+          <input placeholder='edad' type="text" name="age" id="age">
+          <input placeholder='alias' type="text" name="alias" id="alias">
+          <input placeholder='avatar url' type="text" name="avatar" id="avatar">
+          <input placeholder='mensaje' type="text" name="text" id="text">
           <input type="submit" value="Enviar">
         </form>      
         <h4>Mensajes:</h4>
@@ -51,7 +56,7 @@
     socket.on('conversation', (messages) => {
     const messagesHtml = messages.map((message) => `
       <div>
-        <strong style= "color: blue">${message.mail}:  </strong>
+        <strong style= "color: blue">${message.id}:  </strong>
         <em>[<em style="color:brown">${message.date}</em>]: <i style= "color: green">${message.text}</i></em>
       </div>`)
     .join(' ');
@@ -64,16 +69,21 @@ const form = document.getElementById("form")
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const mail = document.getElementById('mail').value;
+  const id = document.getElementById('id').value;
+  const name = document.getElementById('name').value;
+  const surname = document.getElementById('surname').value;
+  const age = document.getElementById('age').value;
+  const alias = document.getElementById('alias').value;
+  const avatar = document.getElementById('avatar').value;
   const text = document.getElementById('text').value;
 
   //creacion de data en GB para formato en 24hs
   const date = new Date().toLocaleString("en-GB");
 
   console.log(({
-    mail, date, text
+    id, name, surname, age, alias, avatar, date, text
   }));
-  const message = { mail, date, text }
+  const message = {author:{ id, name, surname, age, alias, avatar, date}, text }
   socket.emit('new-message', message);
 });
 

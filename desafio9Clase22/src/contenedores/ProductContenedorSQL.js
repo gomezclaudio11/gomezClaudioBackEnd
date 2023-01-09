@@ -11,12 +11,14 @@ class ProductContenedorSQL {
     return id;
   }
 
-  getById(id) {
-    return this.database.select().from(this.table).where('id', parseInt(id));
+  async getById(id) {
+    await this.database.select().from(this.table).where('id', parseInt(id));
+    return;
   }
 
-  getAll() {
-    return this.database.select().from(this.table);
+  async getAll() {
+    await this.database.select().from(this.table);
+    return;
   }
 
   async deleteById(id) {

@@ -6,10 +6,10 @@
         console.log({ products });
         const productListHTML = products.map(productItems => `
         <tr>
-              <th scope="col">${productItems.nombre}</th>
-              <th scope="col">${productItems.precio}</th>
+              <th scope="col">${productItems.title}</th>
+              <th scope="col">${productItems.price}</th>
               <th scope="col">
-                <img src = ${productItems.url} style="height: 40px"/>
+                <img src = ${productItems.thumbnail} style="height: 40px"/>
                 </th>
             </tr>
         `).join("");
