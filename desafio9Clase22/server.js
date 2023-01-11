@@ -1,4 +1,5 @@
 import express from 'express'
+import mongoose from 'mongoose'
 import http from 'http'
 import { Server, Socket} from 'socket.io'
 import productRouter from "./src/routers/products.js"
@@ -6,8 +7,27 @@ import messagesRouter from "./src/routers/messages.js"
 const app = express()
 const server = http.Server(app)
 
+const mensajeSchema = new mongoose.Schema(
+  { 
+  author:{
+      id: String,
+      nombre: String,
+      apellido: String,
+      edad: Number,
+      alias: String,
+      avatar: String
+  },
+  text: String
+  }
+  )
+  const mensajeDAO = mongoose.model('mensaje', mensajeSchema)
+  await mensajeDAO.create({ author:{id: 2, nombre:"federico", apellido: "gonzalez", edad: 21, alias:"fede", avatar:"asdasd"}, text: "holaaa" })
+  console.log('usuario agregado!')
+
 import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
-const contenedorMensajeMongo = new ContenedorMensajeMongoDb
+const contenedorMensajeMongo = new ContenedorMensajeMongoDb ("mensaje", mensajeSchema)
+
+
 
 const io = new Server(server)
 io.on('connection', async (socket) => {
@@ -15,11 +35,11 @@ io.on('connection', async (socket) => {
   
     socket.emit('products', await productContenedorSQL.getAll());
     
-    socket.emit('conversation', messages);
-    socket.on('new-message', (newMessage) => {
+    socket.emit('conversation',await contenedorMensajeMongo.getAll());
+    socket.on('new-message', async newMessage => {
     console.log({newMessage});
-    messages.contenedorMensajeMongo.save(newMessage);
-    io.sockets.emit('conversation', messages);
+    await contenedorMensajeMongo.save(newMessage);
+    io.sockets.emit('conversation', await contenedorMensajeMongo.getAll());
     });
   });
 
