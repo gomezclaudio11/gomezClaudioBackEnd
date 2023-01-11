@@ -8,21 +8,59 @@ const app = express()
 const server = http.Server(app)
 
 const mensajeSchema = new mongoose.Schema(
-  { 
-  author:{
-      id: String,
-      nombre: String,
-      apellido: String,
-      edad: Number,
-      alias: String,
-      avatar: String
-  },
-  text: String
-  }
+  {
+      author:{
+        id: String,
+        nombre: String,
+        apellido: String,
+        edad: Number,
+        alias: String,
+        avatar: String
+      },
+      text: String
+    }
   )
   const mensajeDAO = mongoose.model('mensaje', mensajeSchema)
   await mensajeDAO.create({ author:{id: 2, nombre:"federico", apellido: "gonzalez", edad: 21, alias:"fede", avatar:"asdasd"}, text: "holaaa" })
   console.log('usuario agregado!')
+
+  //normalizr
+  import { normalize, denormalize, schema } from "normalizr";
+
+  // Definimos un esquema de usuarios (autores y comentadores)
+const authorSchema = new schema.Entity("author");
+
+// Definimos un esquema de comentadores
+const commentSchema = new schema.Entity("text", {
+  author: authorSchema,
+});
+
+// Definimos un esquema 
+const postSchema = new schema.Entity("mensajes", {
+  author: authorSchema,
+  comments: [commentSchema],
+});
+
+import { inspect } from 'util';
+
+function print(objeto) {
+  console.log(inspect(objeto, false, 12, true))
+}
+
+console.log(' ------------- OBJETO ORIGINAL --------------- ')
+print(mensajeSchema)
+console.log(JSON.stringify(mensajeSchema).length)
+
+console.log(' ------------- OBJETO NORMALIZADO --------------- ')
+const normalizedBlogpost = normalize(mensajeSchema, postSchema);
+print(normalizedBlogpost)
+console.log(JSON.stringify(normalizedBlogpost).length)
+// 
+console.log(' ------------- OBJETO DENORMALIZADO --------------- ')
+const denormalizedBlogpost = denormalize(normalizedBlogpost.result, postSchema, normalizedBlogpost.entities);
+print(denormalizedBlogpost)
+console.log(JSON.stringify(denormalizedBlogpost).length)
+
 
 import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
 const contenedorMensajeMongo = new ContenedorMensajeMongoDb ("mensaje", mensajeSchema)
