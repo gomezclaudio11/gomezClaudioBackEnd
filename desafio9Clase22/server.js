@@ -36,7 +36,7 @@ const commentSchema = new schema.Entity("text", {
 });
 
 // Definimos un esquema 
-const postSchema = new schema.Entity("mensajes", {
+const postSchema = new schema.Entity("newMessage", {
   author: authorSchema,
   comments: [commentSchema],
 });
@@ -52,14 +52,14 @@ print(mensajeSchema)
 console.log(JSON.stringify(mensajeSchema).length)
 
 console.log(' ------------- OBJETO NORMALIZADO --------------- ')
-const normalizedBlogpost = normalize(mensajeSchema, postSchema);
-print(normalizedBlogpost)
-console.log(JSON.stringify(normalizedBlogpost).length)
+const normalizedmensajeSchema = normalize(mensajeSchema, postSchema);
+print(normalizedmensajeSchema)
+console.log(JSON.stringify(normalizedmensajeSchema).length)
 // 
 console.log(' ------------- OBJETO DENORMALIZADO --------------- ')
-const denormalizedBlogpost = denormalize(normalizedBlogpost.result, postSchema, normalizedBlogpost.entities);
-print(denormalizedBlogpost)
-console.log(JSON.stringify(denormalizedBlogpost).length)
+//const denormalizedmensajeSchema = denormalize(normalizedmensajeSchema.result, postSchema, normalizedmensajeSchema.entities);
+//print(denormalizedmensajeSchema)
+//console.log(JSON.stringify(denormalizedmensajeSchema).length)
 
 
 import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
