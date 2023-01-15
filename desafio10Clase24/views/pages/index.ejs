@@ -32,8 +32,7 @@
     </div>
 
      <div>
-        <h1>Cetro de Mensajes</h1>
-        <h2 id="compresion-info"></h2>      
+        <h1>CHAT</h1>      
         <h4>Crear nuevo mensaje: </h4>
         <form id="form">
           <input placeholder='email' type="text" name="id" id="id">
@@ -54,41 +53,7 @@
       <script>
         const socket = io();
 //chat
-//import { normalize, denormalize, schema } from "normalizr";
-    socket.on('conversation', (menssages) => {
-
-      //tamaño de mensajes normalizados
-      let mensajesNsize = JSON.stringify(menssages).length
-
-      //desnormalizacion de los mensajes
-      let mensajesD = normalizr.denormalize(menssages.result, schemaMensajes, mensajeN.entities)
-
-      //tamaño de mensajes desnormalizados
-      let mensajesDsize = JSON.stringify(mensajesD).length
-
-      //porcentaje de compresion de los mensajes
-      let porcentajeC = parseInt((mensajesNsize * 100) / mensajesDsize)
-
-      //porcentaje en elemento HTML
-      document.getElementById("compresion-info").innerText = porcentajeC
-
-      //se introducen los mensajes desnormalizados para iterar en la etiqueta
-      const html = makeHtmlList (mensajesNsize.mensajes)
-      document.getElementById("conversation").innerHTML = html;
-    });
-
-    function makeHtmlList (menssages) {
-      return menssages.map(mensaje =>{
-        return (`
-        <div>
-          <b style ="color:blue;"> ${mensaje.author.email}</b>
-          [<span style="color:brown;"${mensaje.date}</span>] :
-          <i style="color:green;"> ${mensaje.text}</i>
-        <div/>
-        `)
-      }).join(" ");
-    }
-/*
+    socket.on('conversation', (messages) => {
     const messagesHtml = messages.map((message) => `
       <div>
         <strong style= "color: blue">${message.id}:  </strong>
@@ -97,7 +62,7 @@
     .join(' ');
 
   document.getElementById("messages").innerHTML = messagesHtml;
-*/
+});
 
 //obtengo entradas de chats
 const form = document.getElementById("form")

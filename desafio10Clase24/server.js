@@ -27,54 +27,20 @@ const mensajeSchema = new mongoose.Schema(
   //normalizr
   import { normalize, denormalize, schema } from "normalizr";
 
-  // Definimos un esquema de autor
-const schemaAuthor = new schema.Entity("author", {}, {idAttribute : "email"});
+  // Definimos un esquema de usuarios (autores y comentadores)
+const authorSchema = new schema.Entity("author");
 
-// Definimos un esquema de mensaje
-const schemaMensaje = new schema.Entity("text", {author: schemaAuthor}, {idAttribute:"id"});
+// Definimos un esquema de comentadores
+const commentSchema = new schema.Entity("text", {
+  author: authorSchema,
+});
 
-// Definimos un esquema de posts
-const schemaMensajes = new schema.Entity("newMessage", {mensajes: [schemaMensaje]}, {idAttribute: "id"});
+// Definimos un esquema 
+const postSchema = new schema.Entity("newMessage", {
+  author: authorSchema,
+  comments: [commentSchema],
+});
 
-import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
-const contenedorMensajeMongo = new ContenedorMensajeMongoDb ("mensaje", mensajeSchema)
-
-const io = new Server(server)
-io.on('connection', async (socket) => {
-    console.log('socket id: ', socket.id);
-    //carga inicial de productos
-    socket.emit('products', await productContenedorSQL.getAll());
-    
-    //carga inicial de mensajes
-    socket.emit('conversation',await listarMensajesNormalizados());
-    //actualizacion de mensajes
-    socket.on('new-message', async newMessage => {
-    console.log({newMessage});
-    await contenedorMensajeMongo.save(newMessage);
-    io.sockets.emit('conversation', await listarMensajesNormalizados());
-    });
-  });
-
-  async function listarMensajesNormalizados(){
-    const mensajes = await contenedorMensajeMongo.getAll()
-    const normalizados = normalize({ id: "conversation", mensajes}, schemaMensajes)
-    return normalizados
-  }
-  /*
-  const messages = [
-    { 
-      author: {
-          id: 'mail del usuario', 
-          nombre: 'nombre del usuario', 
-          apellido: 'apellido del usuario', 
-          edad: 'edad del usuario', 
-          alias: 'alias del usuario',
-          avatar: 'url avatar (foto, logo) del usuario'
-      },
-      text: 'mensaje del usuario'
-  }
-  
-  ]
 import { inspect } from 'util';
 
 function print(objeto) {
@@ -94,7 +60,42 @@ console.log(' ------------- OBJETO DENORMALIZADO --------------- ')
 //const denormalizedmensajeSchema = denormalize(normalizedmensajeSchema.result, postSchema, normalizedmensajeSchema.entities);
 //print(denormalizedmensajeSchema)
 //console.log(JSON.stringify(denormalizedmensajeSchema).length)
-*/
+
+
+import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
+const contenedorMensajeMongo = new ContenedorMensajeMongoDb ("mensaje", mensajeSchema)
+
+
+
+const io = new Server(server)
+io.on('connection', async (socket) => {
+    console.log('socket id: ', socket.id);
+  
+    socket.emit('products', await productContenedorSQL.getAll());
+    
+    socket.emit('conversation',await contenedorMensajeMongo.getAll());
+    socket.on('new-message', async newMessage => {
+    console.log({newMessage});
+    await contenedorMensajeMongo.save(newMessage);
+    io.sockets.emit('conversation', await contenedorMensajeMongo.getAll());
+    });
+  });
+
+  const messages = [
+    { 
+      author: {
+          id: 'mail del usuario', 
+          nombre: 'nombre del usuario', 
+          apellido: 'apellido del usuario', 
+          edad: 'edad del usuario', 
+          alias: 'alias del usuario',
+          avatar: 'url avatar (foto, logo) del usuario'
+      },
+      text: 'mensaje del usuario'
+  }
+  
+  ]
+
 
 app.use (express.urlencoded({ extended: true}));
 
