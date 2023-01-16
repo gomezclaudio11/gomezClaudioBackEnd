@@ -1,8 +1,9 @@
 <script>
+
     console.log("js en el cliente");
     const socket = io();
 
-    socket.on("products",(products)=>{
+    socket.on("productList",(products)=>{
         console.log({ products });
         const productListHTML = products.map(productItems => `
         <tr>

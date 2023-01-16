@@ -60,42 +60,7 @@ io.on('connection', async (socket) => {
     const normalizados = normalize({ id: "conversation", mensajes}, schemaMensajes)
     return normalizados
   }
-  /*
-  const messages = [
-    { 
-      author: {
-          id: 'mail del usuario', 
-          nombre: 'nombre del usuario', 
-          apellido: 'apellido del usuario', 
-          edad: 'edad del usuario', 
-          alias: 'alias del usuario',
-          avatar: 'url avatar (foto, logo) del usuario'
-      },
-      text: 'mensaje del usuario'
-  }
   
-  ]
-import { inspect } from 'util';
-
-function print(objeto) {
-  console.log(inspect(objeto, false, 12, true))
-}
-
-console.log(' ------------- OBJETO ORIGINAL --------------- ')
-print(mensajeSchema)
-console.log(JSON.stringify(mensajeSchema).length)
-
-console.log(' ------------- OBJETO NORMALIZADO --------------- ')
-const normalizedmensajeSchema = normalize(mensajeSchema, postSchema);
-print(normalizedmensajeSchema)
-console.log(JSON.stringify(normalizedmensajeSchema).length)
-// 
-console.log(' ------------- OBJETO DENORMALIZADO --------------- ')
-//const denormalizedmensajeSchema = denormalize(normalizedmensajeSchema.result, postSchema, normalizedmensajeSchema.entities);
-//print(denormalizedmensajeSchema)
-//console.log(JSON.stringify(denormalizedmensajeSchema).length)
-*/
-
 app.use (express.urlencoded({ extended: true}));
 
 app.use(express.json());

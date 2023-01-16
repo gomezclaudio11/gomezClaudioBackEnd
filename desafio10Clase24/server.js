@@ -4,6 +4,11 @@ import http from 'http'
 import { Server, Socket} from 'socket.io'
 import productRouter from "./src/routers/products.js"
 import messagesRouter from "./src/routers/messages.js"
+import session from "express-session";
+import MongoStore from "connect-mongo";
+
+
+
 const app = express()
 const server = http.Server(app)
 
@@ -47,21 +52,6 @@ function print(objeto) {
   console.log(inspect(objeto, false, 12, true))
 }
 
-console.log(' ------------- OBJETO ORIGINAL --------------- ')
-print(mensajeSchema)
-console.log(JSON.stringify(mensajeSchema).length)
-
-console.log(' ------------- OBJETO NORMALIZADO --------------- ')
-const normalizedmensajeSchema = normalize(mensajeSchema, postSchema);
-print(normalizedmensajeSchema)
-console.log(JSON.stringify(normalizedmensajeSchema).length)
-// 
-console.log(' ------------- OBJETO DENORMALIZADO --------------- ')
-//const denormalizedmensajeSchema = denormalize(normalizedmensajeSchema.result, postSchema, normalizedmensajeSchema.entities);
-//print(denormalizedmensajeSchema)
-//console.log(JSON.stringify(denormalizedmensajeSchema).length)
-
-
 import ContenedorMensajeMongoDb from './src/contenedores/ContenedorMensajeMongoDb.js'
 const contenedorMensajeMongo = new ContenedorMensajeMongoDb ("mensaje", mensajeSchema)
 
@@ -81,27 +71,21 @@ io.on('connection', async (socket) => {
     });
   });
 
-  const messages = [
-    { 
-      author: {
-          id: 'mail del usuario', 
-          nombre: 'nombre del usuario', 
-          apellido: 'apellido del usuario', 
-          edad: 'edad del usuario', 
-          alias: 'alias del usuario',
-          avatar: 'url avatar (foto, logo) del usuario'
-      },
-      text: 'mensaje del usuario'
-  }
-  
-  ]
-
-
+ 
 app.use (express.urlencoded({ extended: true}));
 
 app.use(express.json());
 
 app.set('view engine', 'ejs');
+
+//login
+const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+
+app.use(session({
+  secret: 'secreto',
+  resave: false,
+  saveUninitialized: false
+}))
 
 import ProductContenedor from "./src/contenedores/ProductContenedor.js";
 const productContenedor = new ProductContenedor();
@@ -112,14 +96,18 @@ const productContenedorSQL = new ProductContenedorSQL(mysqlConnection, 'producto
 
 const PORT = 8080;
 server.listen(PORT, () => console.log(`Servidor iniciado en el puerto ${PORT}`));
-
-
+//LOGIN
+app.get("/login", (req, res)=>{
+  res.render("pages/login")
+})
+app.get("/logout", (req, res)=>{
+  res.render("pages/logout")
+});
 app.get('/', (req, res) => {
    // ProductContenedor.save(req.body);
     const personList = [];
   res.render('pages/index', { list: personList });
 });
-
 app.post('/products', (req, res) => {
     console.log(req.body);
     productContenedor.save(req.body);
