@@ -4,12 +4,23 @@
         <%- include('../partials/head'); %>
       </head>
 <body>
-    <form>
-        <div class="mb-3">
+    <form id="user">
+        <div class="mb-3" >
           <label for="exampleInputEmail1" class="form-label" >Login de Usuario</label>
           <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp" placeholder="Ingrese nombre">
+          <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
+      <script>
+        const user = document.getElementById("user")
+        user.addEventListener("submit", (event)=>{
+            event.preventDefault();
+            const usuario = document.getElementById('usuario').value;
+            console.log(usuario)
+        })
+
+      </script>
+      
+
 </body>
 </html>
