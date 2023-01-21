@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <div class="jumbotron">
+  <h1>Historial</h1>
+  <% if (productos.length && productos.length != 0) { %>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+    <% productos.forEach((producto) => { %>
+        <tr>
+          <td><%= producto.nombre %></td>
+          <td><%= producto.precio %></td>
+          <td><img style= "height: 40px;" src=<%= producto.url %>> </td>
+        </tr>
+        <% }); %>
+       
+      </tbody>
+    </table>
+
+    <% } else { %>
+      <h3>No se encontraron productos</h3>
+    <% } %>
+
+  </div>
+</body>
+</html>

@@ -86,15 +86,16 @@ app.get('/', (req, res) => {
 
 app.post('/products', (req, res) => {
     console.log(req.body);
-    productContenedor.save(req.body);
+    productContenedorSQL.save(req.body);
     io.sockets.emit("products", productContenedorSQL.getAll())
-    res.redirect('/'); 
+    res.redirect('/products'); 
   }); 
 
 app.get('/products', (req, res) => {
     console.log(req.body)
-    productContenedorSQL.getAll()
-    res.json();
+    const productsList = productContenedorSQL.getAll()
+    //res.json();
+    res.render('pages/products', {productos: productsList})
 });
 
 //fackers
