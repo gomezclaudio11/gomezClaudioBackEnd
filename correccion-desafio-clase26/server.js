@@ -104,64 +104,34 @@ const contenedorMensajeMongo = new ContenedorMensajeMongoDb("mensaje", mensajeSc
 
 /********** SESSION Y PASSPORT ***********/
 // passport configuracion para login 
-passport.use("login", new LocalStrategy((username, password, done) => {
-    // busca el usuario
-    contenedorUsuarios.findOne({ username }, (err, user) => {
-      // si da error retorna el error
-      if (err) return done(err);
+passport.use("login", new LocalStrategy(async (username, password, done) => {
+   const user = await contenedorUsuarios.findOne(username) 
 
-      // si no existe el usuario retorna null y false (ver que seria null y false...)
-      if (!user) {
+     if (!user) {
         console.log("usuario no encontrado");
         return done(null, false);
       }
-
-      // si la pass no es valida retorna null false
-      if (!isValidPassword(user, password)) {
-        console.log(" password invalido");
-        return done(null, false);
-      }
-
       // si no pasa nada de lo anterior retorna null, user (el resultado)
       return done(null, user);
-    });
-  })
-);
+    }))
 
 // REALIZAR: configurar las otras rutas de passport ("register", )
 //passport configuracion para register
 passport.use( "register", new LocalStrategy( {
-  passReqToCallback: true
-},
-  (req, username, password, done) => {
-    contenedorUsuarios.findOne({ "username": username}, function
-    (err, user) {
-      if (err) {
-        console.log("error en registro" + err);
-        return done (err);
+  passReqToCallback: true, usernameField : "username"
+}, async (req, username, password, done) => {
+    const usuario = await contenedorUsuarios.findOne( "username" );
+    
+    if (usuario) {
+        return done (null, false);
       }
-      if (user) {
-        console.log("user ya existe");
-        return done (null, false)
-      }
-
-      const newUser = {
-        username: username,
-        password: isValidPassword (password)
-      }
-
-      contenedorUsuarios.create (newUser, (err, userWithId) => {
-        if (err) {
-          console.log("error guardando usuario" + err);
-          return done (err);
-        }
-        console.log(user);
-        console.log("registro de usuario exitoso");
+    const user = {
+      username: username
+    }
+    contenedorUsuarios.create (user)
         return done(null, userWithId);
       })
-    })
-  }
-));
+    );
 
 
 // REALIZAR: realizar los metodos serializeUser y deserializeUser de passport
@@ -170,8 +140,9 @@ passport.serializeUser((user, done) =>{
   done(null, user._id);
 });
 
-passport.deserializeUser((id, done) => {
-  contenedorUsuarios.findOne(username, done)
+passport.deserializeUser( async (id, done) => {
+  const user = await contenedorUsuarios.findById (id)
+  done (null,user)
 })
 
 // funcion aparte para saber si la contraseña es valida (utilizando bcript)
@@ -293,7 +264,7 @@ app.get("/faillogin", (req, res) => { // endpoint por si falla el login con pass
 // REALIZAR: endpoint para recibir la peticion del boton de logout, este endpoint debera utlizar el metodo req.logout() de 
 // passport (ver clase 25) y tambien redirigir el flujo a la vista de index nuevamente (o login)
 
-app.get ("/logout", (req, res) => {
+app.get ("/logout", isAuth, (req, res) => {
   req.logout();
   res.redirect("/");
 });
@@ -302,7 +273,7 @@ app.get ("/logout", (req, res) => {
 
 // El siguiente endpoint se utiliza para obetner la vista principal de la app, que contiene todo lo realizado en los proyectos anteriores (logica de productos y mensajes)
 // Este endpoint tiene el siguiente problema:
-app.get("/", (req, res) => { // REALIZAR: el endpoint no verifica que es authenticado, hay que usar el 
+app.get("/", isAuth, (req, res) => { // REALIZAR: el endpoint no verifica que es authenticado, hay que usar el 
                               // middleware de passport, en este caso se debe utlizar el metodo "isAuth()" definido anteriormente
                               // tener en cuenta que una vez que se agrega el middleware "isAuth" ya no se podra acceder hasta que 
                               // el contenedor de usuarios este funcionando correctamente (al momento no puede crear un usuario, y por ende, 
