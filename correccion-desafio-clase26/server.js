@@ -75,7 +75,7 @@ const productContenedorSQL = new ProductContenedorSQL(mysqlConnection, "producto
 // definicion de squema usuario (mongo)
 const usuarioSchema = new mongoose.Schema({
   username: { type: String, required: true },
-  password: { type: String, required: true },
+  //password: { type: String, required: true },
 });
 
 // usuarios no esta definido: hay que escribir el primer parametro entre comillas("")
@@ -129,14 +129,14 @@ passport.use( "register", new LocalStrategy( {
       username: username
     }
     contenedorUsuarios.create (user)
-        return done(null, userWithId);
+        return done(null, user);
       })
     );
 
 
 // REALIZAR: realizar los metodos serializeUser y deserializeUser de passport
 
-passport.serializeUser((user, done) =>{
+passport.serializeUser( (user, done) =>{
   done(null, user._id);
 });
 

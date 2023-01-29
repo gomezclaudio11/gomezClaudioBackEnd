@@ -14,7 +14,7 @@ class ContenedorUsuarios {
         return buscarUsuario
     }
 
-    async findbyId (id){
+    async findById (id){
         let buscarUsuario = await this.coleccion.findOne ({ _id: id })
         return buscarUsuario
     }
