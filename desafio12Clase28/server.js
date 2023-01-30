@@ -301,6 +301,51 @@ app.post("/products", async (req, res) => {
 });
 
 
+/************ / INFO ***********/
+app.get("/info", (req, res) =>{
+  const entrada = process.argv.slice(2).join (",")
+  const sistema = process.platform;
+  const versionNode = process.version;
+  const memoriaReservada = parseInt(process.memoryUsage().res/ 1024 / 1024 )
+  const pathEjecucion = process.execPath;
+  const processId = process.pid;
+  const carpeta = process.cwd();
+
+  
+  console.log(
+    `argumento de entrada: ${entrada}`,
+    `nombre de la plataforma: ${sistema}`,
+    `version de node.js: ${versionNode}`,
+    `memorio total reservada ${memoriaReservada}`,
+    `path de ejecucion: ${pathEjecucion}`,
+    ` proccess id: ${processId}`,
+    ` carpeta del proyecto: ${carpeta}`
+  );
+  res.json ( entrada, sistema, versionNode, memoriaReservada, pathEjecucion, processId, carpeta)
+})
+
+/********* api/random *********/
+
+app.get ("/api/randoms/:cant", (req, res) => {
+
+const cant = req.params.cant
+
+const numbers = {}
+
+for (let i = 0; i < cant; i++) {
+const randomNumber = Math.floor(Math.random() * 1000)
+
+if (!numbers[randomNumber]) {
+numbers[randomNumber] = 0
+}
+
+numbers[randomNumber]++
+}
+
+res.json( numbers )
+})
+
+
 
 /******** FAKER *******/
 import { faker } from "@faker-js/faker";
@@ -341,9 +386,22 @@ app.get("/api/productos-test", (req, res) => {
   res.json(generarNProductos(cant));
 });
 
-
 /******** LISTEN  **********/
+
 const PORT = 8080;
 server.listen(PORT, () =>
   console.log(`Servidor iniciado en el puerto ${PORT}`)
 );
+
+
+/******** MINIMIST ******** */
+
+import  parsedArgs  from "minimist";
+
+console.log (
+  parsedArgs (process.argv.splice(2),{
+    alias:{
+      p: "port",
+    },
+ })
+)
