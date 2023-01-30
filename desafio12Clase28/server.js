@@ -325,22 +325,14 @@ app.get("/info", (req, res) =>{
 })
 
 /********* api/random *********/
+import fork from "child_process"
+import path from "path"
 
 app.get ("/api/randoms/:cant", (req, res) => {
+  const cant = req.params.cant
+const randomNumber = fork (path.resolve(process.cwd(), "randomNumber.js"))
+randomNumber.on ("message", )
 
-const cant = req.params.cant
-
-const numbers = {}
-
-for (let i = 0; i < cant; i++) {
-const randomNumber = Math.floor(Math.random() * 1000)
-
-if (!numbers[randomNumber]) {
-numbers[randomNumber] = 0
-}
-
-numbers[randomNumber]++
-}
 
 res.json( numbers )
 })
