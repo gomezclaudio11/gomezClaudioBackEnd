@@ -235,7 +235,6 @@ app.post("/register", passport.authenticate("register", { // se envia los datos 
                                                           //passport, pero aun no funciona xq falta definir "register"
     failureRedirect: "/failregister", // si falla redirige a /failregister
     successRedirect: "/", // si sale todo bien va al home ("/"), con la session iniciada
-    session: false //pide iniciar sesionn luego del registro
   })
 );
 
@@ -266,12 +265,8 @@ app.get("/faillogin", (req, res) => { // endpoint por si falla el login con pass
 // passport (ver clase 25) y tambien redirigir el flujo a la vista de index nuevamente (o login)
 
 app.get ("/logout", isAuth, (req, res) => {
-  req.logout(function (err){
-    if (err){
-      return next (err);
-    }
-    res.redirect("/");
-  });
+  req.logout();
+  res.redirect("/");
 });
 
 /********* INICIO (HOME) ********* */
