@@ -325,9 +325,9 @@ app.get("/info", (req, res) =>{
 })
 
 /********* api/random *********/
-import fork from "child_process"
+import { fork } from "child_process"
 import path from "path"
-
+/*
 app.get ("/api/randoms/:cant", (req, res) => {
   const cant = req.params.cant
 const randomNumber = fork (path.resolve(process.cwd(), "randomNumber.js"))
@@ -336,7 +336,21 @@ randomNumber.on ("message", )
 
 res.json( numbers )
 })
-
+*/
+app.get ("/api/randoms/:cant", async (req, res) => {
+  const cant = req.params.cant
+  
+  const numbers = await new Promise((resolve, reject) => {
+    const forked = fork (path.resolve(process.cwd(), "randomNumber.js"))
+    forked.on ("message", mensaje => {
+      if(mensaje == "listo") {
+        forked.send(cant)
+      } else {  
+        resolve(mensaje)
+      }})
+    })
+    res.json( numbers )
+    });
 
 
 /******** FAKER *******/
@@ -378,22 +392,18 @@ app.get("/api/productos-test", (req, res) => {
   res.json(generarNProductos(cant));
 });
 
-/******** LISTEN  **********/
-
-const PORT = 8080;
-server.listen(PORT, () =>
-  console.log(`Servidor iniciado en el puerto ${PORT}`)
-);
 
 
 /******** MINIMIST ******** */
 
-import  parsedArgs  from "minimist";
+import  parseArgs  from "minimist";
 
-console.log (
-  parsedArgs (process.argv.splice(2),{
-    alias:{
-      p: "port",
-    },
- })
-)
+const argv = parseArgs (process.argv.slice(2), { alias: { p: "port" }, default: { port: 8080 } })
+
+
+/******** LISTEN  **********/
+
+//const PORT = 8080;
+server.listen( argv.port, () =>
+  console.log(`Servidor iniciado en el puerto ${argv.port}`)
+  );
