@@ -306,7 +306,7 @@ app.get("/info", (req, res) =>{
   const entrada = process.argv.slice(2).join (",")
   const sistema = process.platform;
   const versionNode = process.version;
-  const memoriaReservada = parseInt(process.memoryUsage().res/ 1024 / 1024 )
+  const memoriaReservada = parseInt(process.memoryUsage().rss / 1024 / 1024 )
   const pathEjecucion = process.execPath;
   const processId = process.pid;
   const carpeta = process.cwd();
@@ -321,7 +321,7 @@ app.get("/info", (req, res) =>{
     ` proccess id: ${processId}`,
     ` carpeta del proyecto: ${carpeta}`
   );
-  res.json ( entrada, sistema, versionNode, memoriaReservada, pathEjecucion, processId, carpeta)
+  res.json ({ ArgumentoDeEntrada: entrada, plataforma: sistema, versionNode: versionNode, memoria: memoriaReservada, path: pathEjecucion, processId: processId, carpeta: carpeta })
 })
 
 /********* api/random *********/
@@ -337,19 +337,6 @@ randomNumber.on ("message", )
 res.json( numbers )
 })
 */
-app.get ("/api/randoms/:cant", async (req, res) => {
-  const cant = req.params.cant  
-  const numbers = await new Promise((resolve, reject) => {
-    const forked = fork (path.resolve(process.cwd(), "randomNumber.js"))
-    forked.on ("message", mensaje => {
-      if(mensaje == "listo") {
-        forked.send(cant)
-      } else {  
-        resolve(mensaje)
-      }})
-    })
-    res.json( numbers )
-    });
 
 
 /******** FAKER *******/
@@ -406,3 +393,50 @@ const argv = parseArgs (process.argv.slice(2), { alias: { p: "port" }, default: 
 server.listen( argv.port, () =>
   console.log(`Servidor iniciado en el puerto ${argv.port}`)
   );
+
+/******* CLUSTER *********/
+
+import cluster, { Worker } from "cluster";
+import os from "os";
+
+const modoCluster = process.argv[3] === "CLUSTER";
+const numCPUs = os.cpus().length
+
+/* master */
+if (modoCluster.isPrimary){
+  console.log(numCPUs);
+  console.log(`PID MASTER ${process.pid}`);
+
+  for (let i = 0; i < numCPUs; i++){
+    cluster.fork()
+  }
+  cluster.on("exit", worker => {
+    console.log("woker", worker.process.pid, "died");
+    cluster.fork()
+  })
+}
+/* workers */
+else {
+
+  const app = express()
+
+  const PORT = parseInt(process.argv[2]) || 8080
+
+  app.get ("/api/randoms/:cant", async (req, res) => {
+    const cant = req.params.cant  
+    const numbers = await new Promise((resolve, reject) => {
+      const forked = fork (path.resolve(process.cwd(), "randomNumber.js"))
+      forked.on ("message", mensaje => {
+        if(mensaje == "listo") {
+          forked.send(cant)
+        } else {  
+          resolve(mensaje)
+        }})
+      })
+      res.json( numbers )
+      });
+  
+  app.listen(PORT, err => {
+    if (!err) console.log(`Servidor express escuchando en el puerto ${PORT} - PID WORKER ${process.pid}`)
+})
+}
