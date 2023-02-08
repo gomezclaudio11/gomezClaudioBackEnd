@@ -306,7 +306,7 @@ app.get("/info", (req, res) =>{
   const entrada = process.argv.slice(2).join (",")
   const sistema = process.platform;
   const versionNode = process.version;
-  const memoriaReservada = parseInt(process.memoryUsage().res/ 1024 / 1024 )
+  const memoriaReservada = parseInt(process.memoryUsage().rss / 1024 / 1024 )
   const pathEjecucion = process.execPath;
   const processId = process.pid;
   const carpeta = process.cwd();
@@ -321,7 +321,7 @@ app.get("/info", (req, res) =>{
     ` proccess id: ${processId}`,
     ` carpeta del proyecto: ${carpeta}`
   );
-  res.json ( entrada, sistema, versionNode, memoriaReservada, pathEjecucion, processId, carpeta)
+  res.json ( { ArgumentoDeEntrada: entrada, plataforma: sistema, versionNode: versionNode, memoria: memoriaReservada, path: pathEjecucion, processId: processId, carpeta: carpeta })
 })
 
 /********* api/random *********/
