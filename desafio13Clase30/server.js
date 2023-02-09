@@ -399,11 +399,11 @@ server.listen( argv.port, () =>
 import cluster, { Worker } from "cluster";
 import os from "os";
 
-const modoCluster = process.argv[3] === "CLUSTER";
+const modo = process.argv[3] || "FORK";
 const numCPUs = os.cpus().length
 
 /* master */
-if (modoCluster.isPrimary){
+if (modo == "CLUSTER" && cluster.isPrimary){
   console.log(numCPUs);
   console.log(`PID MASTER ${process.pid}`);
 
