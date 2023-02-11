@@ -59,68 +59,45 @@ import ProductContenedorSQL from "./src/contenedores/ProductContenedorSQL.js";
 import ContenedorMensajeMongoDb from "./src/contenedores/ContenedorMensajeMongoDb.js";
 import ContenedorUsuarios from "./src/contenedores/ContenedorUsuarios.js";
 
-/********* api/random *********/
-import { fork } from "child_process"
-import path from "path"
 
-/******** FAKER *******/
-import { faker } from "@faker-js/faker";
-import { createHash } from "crypto";
-
-/******** MINIMIST ******** */
-
-import  parseArgs  from "minimist";
-
-
-/******* CLUSTER *********/
-
-import cluster, { Worker } from "cluster";
-import os from "os";
-
-const modo = process.argv[3] || "FORK";
-const numCPUs = os.cpus().length
-
-/* master */
-if (modo == "CLUSTER" && cluster.isPrimary){
-  console.log(numCPUs);
-  console.log(`PID MASTER ${process.pid}`);
-
-  for (let i = 0; i < numCPUs; i++){
-    cluster.fork()
-  }
-  cluster.on("exit", worker => {
-    console.log("woker", worker.process.pid, "died");
-    cluster.fork()
-  })
-}
-/* workers */
-else {
-
-  const app = express()
-
-  
-
-  app.get ("/api/randoms/:cant", async (req, res) => {
-    const cant = req.params.cant  
-    const numbers = await new Promise((resolve, reject) => {
-      const forked = fork (path.resolve(process.cwd(), "randomNumber.js"))
-      forked.on ("message", mensaje => {
-        if(mensaje == "listo") {
-          forked.send(cant)
-        } else {  
-          resolve(mensaje)
-        }})
-      })
-      res.json( numbers )
-      });
-
-/*********** */
 /********** SERVER ***********/
 // instanciacion de servidor
-
+const app = express();
 const server = http.Server(app);
 
+/*
+// LOG4JS
+import  log4js  from "log4js";
 
+log4js.congifure({
+  appenders:{
+    loggerConsole: {type: "console"},
+    loggerWarningFile: {type: "file", filename: "warning.log"},
+    loggerErrorFile: {type: "file", filename: "error.log"}
+  },
+  categories:{
+    info:{
+      appenders: ["loggerConsole"],
+      level: "info",
+    },
+    warning:{
+      appenders: ["loggerConsole", "loggerWarningFile"],
+      level: "warn",
+    },
+    error:{
+      appenders: ["loggerConsole", "loggerErrorFile"],
+      level: "error",
+    }
+  }
+});
+
+const info = log4js.getLogger("info");
+const error = log4js.getLogger("error");
+
+app.use ((req, res) => {
+
+})
+*/
 /******* CONTENEDOR SQL ************* */
 // instanciacion productos (mysql)
 const productContenedorSQL = new ProductContenedorSQL(mysqlConnection, "productos");
@@ -357,7 +334,11 @@ app.post("/products", async (req, res) => {
 
 
 /************ / INFO ***********/
-app.get("/info", (req, res) =>{
+/*******  COMPRESSION GZIP *********/
+
+import compression from "compression";
+
+app.get("/info", compression(), (req, res) =>{
   const entrada = process.argv.slice(2).join (",")
   const sistema = process.platform;
   const versionNode = process.version;
@@ -379,8 +360,24 @@ app.get("/info", (req, res) =>{
   res.json ({ ArgumentoDeEntrada: entrada, plataforma: sistema, versionNode: versionNode, memoria: memoriaReservada, path: pathEjecucion, processId: processId, carpeta: carpeta })
 })
 
+/********* api/random *********/
+import { fork } from "child_process"
+import path from "path"
+/*
+app.get ("/api/randoms/:cant", (req, res) => {
+  const cant = req.params.cant
+const randomNumber = fork (path.resolve(process.cwd(), "randomNumber.js"))
+randomNumber.on ("message", )
+
+
+res.json( numbers )
+})
+*/
+
 
 /******** FAKER *******/
+import { faker } from "@faker-js/faker";
+import { createHash } from "crypto";
 faker.locale = "es_MX";
 
 //  generacion de id de los productos ramdom a crear:
@@ -417,13 +414,70 @@ app.get("/api/productos-test", (req, res) => {
   res.json(generarNProductos(cant));
 });
 
+
+
 /******** MINIMIST ******** */
 
+import  parseArgs  from "minimist";
+
 const argv = parseArgs (process.argv.slice(2), { alias: { p: "port" }, default: { port: 8080 } })
+/**********  log4js *******/
+/*
+app.all("*", (req, res)=>{
+  const warn = log4js.getLogger("warn");
+  warn.warn ("Rutas inexistentes")
+})
+*/
+/******** LISTEN  **********/
 
+//const PORT = 8080;
+server.listen( argv.port, () =>
+  console.log(`Servidor iniciado en el puerto ${argv.port}`)
+  );
 
-const PORT = parseInt(process.argv[2]) || 8080
+/******* CLUSTER *********/
+
+import cluster, { Worker } from "cluster";
+import os from "os";
+
+const modo = process.argv[3] || "FORK";
+const numCPUs = os.cpus().length
+
+/* master */
+if (modo == "CLUSTER" && cluster.isPrimary){
+  console.log(numCPUs);
+  console.log(`PID MASTER ${process.pid}`);
+
+  for (let i = 0; i < numCPUs; i++){
+    cluster.fork()
+  }
+  cluster.on("exit", worker => {
+    console.log("woker", worker.process.pid, "died");
+    cluster.fork()
+  })
+}
+/* workers */
+else {
+
+  const app = express()
+
+  const PORT = parseInt(process.argv[2]) || 8080
+
+  app.get ("/api/randoms/:cant", async (req, res) => {
+    const cant = req.params.cant  
+    const numbers = await new Promise((resolve, reject) => {
+      const forked = fork (path.resolve(process.cwd(), "randomNumber.js"))
+      forked.on ("message", mensaje => {
+        if(mensaje == "listo") {
+          forked.send(cant)
+        } else {  
+          resolve(mensaje)
+        }})
+      })
+      res.json( numbers )
+      });
+  
   app.listen(PORT, err => {
     if (!err) console.log(`Servidor express escuchando en el puerto ${PORT} - PID WORKER ${process.pid}`)
 })
-};
+}
