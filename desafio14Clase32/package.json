@@ -8,7 +8,7 @@
     "start": "0x server.js"
   },
   "keywords": [],
-  "author": "", 
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
@@ -35,5 +35,6 @@
     "sqlite": "^4.1.2",
     "sqlite3": "^5.1.4"
   },
+  "devDependencies": {},
   "description": ""
 }

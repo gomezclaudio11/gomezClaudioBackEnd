@@ -21,4 +21,4 @@ function run (url) {
 
 console.log ("corriendo benchmarks en paralelo")
 
-run (" http://localhost:8080/info")  
+run ("http://localhost:8080/info")  
