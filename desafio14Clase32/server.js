@@ -75,8 +75,9 @@ import { createHash } from "crypto";
 /******** MINIMIST ******** */
 import  parseArgs  from "minimist";
 
- // LOG4JS
- import  log4js  from "log4js";
+//log4js
+import { logInfo } from "./logger/logger.js";
+import { logWarn } from "./logger/logger.js";
 
 /******* CLUSTER *********/
 
@@ -85,6 +86,10 @@ import os from "os";
 
 const modo = process.argv[3] || "FORK";
 const numCPUs = os.cpus().length
+
+
+
+
 
 /* master */
 if (modo == "CLUSTER" && cluster.isPrimary){
@@ -123,36 +128,9 @@ else {
   const server = http.Server(app);
 
 
-  // LOG4JS
-
-log4js.configure({
-  appenders:{
-    loggerConsole: {type: "console"},
-    loggerWarningFile: {type: "file", filename: "warning.log"},
-    loggerErrorFile: {type: "file", filename: "error.log"}
-  },
-  categories:{
-    info:{
-      appenders: ["loggerConsole"],
-      level: "info",
-    },
-    warning:{
-      appenders: ["loggerConsole", "loggerWarningFile"],
-      level: "warn",
-    },
-    error:{
-      appenders: ["loggerConsole", "loggerErrorFile"],
-      level: "error",
-    }
-  }
-});
-
-const info = log4js.getLogger("info");
-const warn = log4js.getLogger("warn");
-const error = log4js.getLogger("error");
-
+//LOG4JS
 app.use ((req, res, next) => {
-  [info.info]("http://loggerinstanciadoinfo.info")(`${req.method} ${req.url}`)
+  logInfo.info(`${req.method} ${req.url}`)
   next()
 })
 
@@ -462,7 +440,7 @@ const argv = parseArgs (process.argv.slice(2), { alias: { p: "port" }, default: 
 
 /**********  log4js *******/
 app.use('*', (req, res, next) => {
-  warn.warn(`${req.method} ${req.originalUrl} / la ruta no existe`)
+  logWarn.warn(`${req.method} ${req.originalUrl} / la ruta no existe`)
   next()
 })
 
