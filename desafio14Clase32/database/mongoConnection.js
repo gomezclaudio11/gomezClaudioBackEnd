@@ -4,7 +4,8 @@
 //configuracion para mongoose
 export default {
     mongodb: {
-        url: 'mongodb://localhost/ecommerce', // base de datos Claudio
+        //url: 'mongodb://localhost/ecommerce', // base de datos Claudio
+        url: "mongodb+srv://<credentials>@cluster0.e0dov1u.mongodb.net/ecommerce?appName=mongosh+1.6.1",
         //url: 'mongodb://localhost/coderhouse', // base de datos Daniel
         options: {
             //useNewUrlParser: true,
@@ -14,4 +15,3 @@ export default {
         }
     }
 }
-console.log("BASE DE DATOS CONECTADA")
