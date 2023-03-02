@@ -1,0 +1,4 @@
+ node --inspect server.js
+
+NUEVA VENTANA
+artillery quick --count 20 -n 50 " http://localhost:8080/info" > resultInfo.txt  

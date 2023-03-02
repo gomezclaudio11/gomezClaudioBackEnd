@@ -19,7 +19,6 @@ class ContenedorUsuarios {
         return buscarUsuario
     }
 
-    // REALIZAR: contenedorUsuarios tambien debe poder guardar un usuario, por lo que habra que crear el metodo para poder realizar esa accion
     async create( user ){
         try {
             let guardarUsuario = await this.coleccion.create ( {username: user.username} )
