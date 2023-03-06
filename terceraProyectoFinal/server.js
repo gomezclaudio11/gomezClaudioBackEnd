@@ -101,11 +101,11 @@ app.use ((req, res, next) => {
 // definicion de squema usuario (mongo)
 const usuarioSchema = new mongoose.Schema({
   username: { type: String, required: true },
-  direccion: { type: String, required: true },
-  email: { type: String, required: true },
-  age: { type: Number, required: true },
-  phone: { type: Number, required: true },
-  avatar: { type: String, required: true },
+  //direccion: { type: String, required: true },
+  //email: { type: String, required: true },
+  //age: { type: Number, required: true },
+  //phone: { type: Number, required: true },
+  //avatar: { type: String, required: true },
   //password: { type: String, required: true },
 });
 
@@ -141,7 +141,7 @@ passport.use( "register", new LocalStrategy( {
     );
 
 passport.serializeUser( (user, done) =>{
-  done(null, user._id);
+  done(null, user.id);
 });
 
 passport.deserializeUser( async (id, done) => {
@@ -239,8 +239,7 @@ app.get ("/logout", isAuth, (req, res) => {
 
 /********* INICIO (HOME) ********* */
 
-// El siguiente endpoint se utiliza para obetner la vista principal de la app, que contiene todo lo realizado en los proyectos anteriores (logica de productos y mensajes)
-// Este endpoint tiene el siguiente problema:
+
 app.get("/", isAuth, (req, res) => { // REALIZAR: el endpoint no verifica que es authenticado, hay que usar el 
                               // middleware de passport, en este caso se debe utlizar el metodo "isAuth()" definido anteriormente
                               // tener en cuenta que una vez que se agrega el middleware "isAuth" ya no se podra acceder hasta que 
