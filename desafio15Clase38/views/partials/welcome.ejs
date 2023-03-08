@@ -1,0 +1,14 @@
+<div style="padding: 1rem 2rem; background-color: #e9ecef; border-radius: 0.3rem;">
+  <div class="float-left">
+      <h1>Bienvenido</h1>
+  </div>
+
+  <!-- Cambie el boton para el logout, con el evento onclick->location.href podemos redirnos a esa direccion -->
+  <!-- En caso que no funcione se puede realizar tambien un form con un method="post" action="/logout" y un boton submit dentro -->
+  <!-- Tener en cuenta que de momento no esta andando porque no esta implementado el endpoint /logout -->
+  <div class="float-right">
+      <button class="btn btn-danger" onclick="location.href='/logout'">
+          <b>Desloguear</b>
+      </button>
+  </div>
+</div>
