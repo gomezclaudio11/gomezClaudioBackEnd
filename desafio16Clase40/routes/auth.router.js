@@ -39,6 +39,8 @@ export const configAuthRouter = (authRouter, passport) => {
   };
  */
 
+import UserDTo from "../dto/user.dto";
+
   
 export const configAuthRouter = (authRouter, upload, passport) => {
   authRouter
@@ -58,6 +60,7 @@ export const configAuthRouter = (authRouter, upload, passport) => {
       })
     )
   .get("/", (req, res) => {
-res.send({user: req.user })
+    const user = new UserDTo (req.user)
+res.send({user: user })
 })
 };
