@@ -39,7 +39,7 @@ export const configAuthRouter = (authRouter, passport) => {
   };
  */
 
-import UserDTo from "../dto/user.dto";
+import UserDTo from "../dto/user.dto.js";
 
   
 export const configAuthRouter = (authRouter, upload, passport) => {
