@@ -4,7 +4,7 @@ import serviceFactory from "./serviceFactory.js";
 export default class ProductService extends serviceFactory{
 
     constructor () {
-        super()
+        super ()
         this.dao = Product;
     }
     async get ()  {
