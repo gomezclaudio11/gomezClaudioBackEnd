@@ -2,6 +2,8 @@ import request from "supertest";
 import { expect } from "chai";
 import app from "../app.js";
 
+
+
 describe ("test productos api", async () => {
     let App = request(app);
     console.log(App);

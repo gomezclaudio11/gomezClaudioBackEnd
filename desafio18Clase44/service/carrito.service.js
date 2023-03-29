@@ -4,6 +4,7 @@ import serviceFactory from "./serviceFactory.js";
 export default class CarritoService extends serviceFactory{
 
     constructor (){
+        super()
         this.dao = Carrito;
     }
 async get  ()  {

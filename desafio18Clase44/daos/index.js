@@ -11,15 +11,23 @@ export default class DAOFactory {
     
     async getCarritoDAO () {
         const { default: CarritoDaoMongoDb } = await import (
-            "./carrito.mongo.dao"
+            "./carrito.mongo.dao.js"
             );
             return new CarritoDaoMongoDb ();
         }
 
+    async getUserDAO () {
+        const { default: UsuarioDaoMongoDb } = await import (
+            "./usuario.mongo.dao.js"
+        );
+        return new UsuarioDaoMongoDb ();
+    }
+
         async getDAOs (){
             return {
                 productsDAO: this.getProductDAO(),
-                carritoDAO: this.getCarritoDAO()
+                carritoDAO: this.getCarritoDAO(),
+                userDAO: this.getUserDAO()
             }
         }
         
@@ -28,6 +36,8 @@ export default class DAOFactory {
     const DAOS = new DAOFactory ();
     DAOS.getProductDAO();
     DAOS.getCarritoDAO();
+    DAOS.getUserDAO();
     DAOS.getDAOs();
-   // const { productDAO, carritoDAO } = DAOS.getDAOs()
+    const { productsDAO, carritoDAO, userDAO } = DAOS.getDAOs()
     
+    export { productsDAO, carritoDAO, userDAO } 

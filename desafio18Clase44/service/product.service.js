@@ -1,4 +1,4 @@
-import {productDAO as Product} from "../daos/index.js";
+import {productsDAO as Product} from "../daos/index.js";
 import serviceFactory from "./serviceFactory.js";
 
 export default class ProductService extends serviceFactory{
@@ -17,9 +17,9 @@ export default class ProductService extends serviceFactory{
         return data;
     };
     
-    async create (data)  {
-        const { name } = data;
-        const res = await this.dao.save ({ name });
+    async createProduct (data)  {
+        const { title, price, description, thumbnail } = data;
+        const res = await this.dao.save ({ title, price, description, thumbnail });
         return res;
     }
 }
