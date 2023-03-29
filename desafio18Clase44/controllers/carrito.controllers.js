@@ -13,18 +13,25 @@ export const createCarrito = async (req, res) => {
     res.send(data);
 };
 
-export const deleteUserCarrito = async (req,res) => {
-    const data = await CarritoService.deleteCarritoById(req.user._id);
+export const deleteCarrito = async (req, res) => {
+    // const data = await PedidoService.deletePedidoByUser(req.user.username);
+    const data = await CarritoService.deletePedidoByUser(req.user._id)
     res.send(data)
-};
-
-export const addUsertoCarrito = async (req, res) => {
-    const { type } = req.params;
-    const { body } = req.body;
-
-    if (type == "remove") {
-    } else {
-        const data = await CarritoService.addUserToCarrito(req.user._id, req.body)
-    }
+  }
+  
+  export const postDrinkToCarrito = async (req, res) => {
+    const { id } = req.params
+    // const data = await PedidoService.addDrinkToPedido(id, req.user.username);
+    const data = await CarritoService.addDrinkToPedido(req.user._id)
     res.send(data)
-};
+  }
+  
+  export const deleteDrinkFromCarrito = async (req, res) => {
+    const { id } = req.params
+    // const data = await PedidoService.deleteDrinkFromPedido(id, req.user.username);
+    const data = await CarritoService.deleteDrinkFromPedido(req.user._id)
+    req.session.boxId = data.username //?
+    // * req.session.save();
+    res.send(data)
+  }
+  

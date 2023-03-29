@@ -4,7 +4,8 @@ const CarritoRouter = new Router();
 
 CarritoRouter.get("/", CarritoController.getByLoggedUser)
     .post("/", CarritoController.createCarrito)
-    .delete("/", CarritoController.deleteUserCarrito)
-    .put("/:type", CarritoController.addUsertoCarrito);
+    .delete("/", CarritoController.deleteCarrito)
+    .post("/:id", CarritoController.postDrinkToCarrito)
+    .delete("/:id", CarritoController.deleteDrinkFromCarrito)
 
 export default CarritoRouter;

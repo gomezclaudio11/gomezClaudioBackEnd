@@ -1,17 +1,22 @@
+/* EXPRESS */
 import express from "express";
+
+/* ROUTERS */
 import ProductRouter from "./routes/products.router.js";
+import CarritoRouter from "./routes/carrito.router.js";
+import AuthRouter from "./routes/auth.router.js";
+
+/* SESSION, AUTHENTICATION Y PASSPORT */
 import session from "./config/session.js";
 import passport from "passport";
-import multer from "multer";
-import passportConfig from "./config/passport.js";
+
 import * as UserService from "./service/user.service.js";
-import { configAuthRouter } from "./routes/auth.router.js";
+import multer from "multer";
 import multerConfig from "./config/multer.config.js";
-import CarritoRouter from "./routes/carrito.router.js";
-const app = express();
 
 
 // configuro el servidor
+const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,8 +28,6 @@ app.set("view engine", "ejs");
 app.use(session);
 
 
-// passportConfig -> passport + strategy
-passportConfig(passport, UserService)
 // passport.authenticate()
 app.use(passport.initialize());
 app.use(passport.session());
@@ -33,14 +36,11 @@ app.use(passport.session());
 
 const upload = multer({ storage: multerConfig });
 
-const authRouter = express.Router();
 
-configAuthRouter(authRouter, upload, passport);
 
-app.use("/api/auth", authRouter);
-
-app.use("/api/products", ProductRouter);
-app.use("/api/carrito", CarritoRouter);
+app.use("/cafeteria", AuthRouter);
+app.use("/products", ProductRouter);
+app.use("/carrito", CarritoRouter);
 
 
 export default app;

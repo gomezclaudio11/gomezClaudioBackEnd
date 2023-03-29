@@ -1,66 +1,137 @@
-/*
-export const configAuthRouter = (authRouter, passport) => {
-    authRouter
+import { Router } from 'express'
+import passport from 'passport'
+import { Strategy as LocalStrategy } from 'passport-local'
+import bcrypt from 'bcrypt'
+import UserFactory from '../service/user.service.js'
 
-      .get("/login", (req, res) => {
-      res.render("pages/login"); 
-    })
-      .post(
-        "/login",
-        passport.authenticate("login", {
-            successRedirect: "/",
-            failureRedirect: "/faillogin",
-        })
-      )
+const UserService = new UserFactory()
 
-      .get("/faillogin", (req, res) => { 
-        res.render("pages/login-error");
-      })
-      
-      .get("/register", (req, res) => {
-        res.render("pages/register");
-      })
+/* PASSPORT */
 
-      .post(
-        "/register",
-        passport.authenticate("signup", {
-            successRedirect: "/",
-            failureRedirect: "/failregister",
-        })
-      )
+/* Signup */
+passport.use(
+  'signup',
+  new LocalStrategy(
+    { passReqToCallback: true, usernameField: 'username' },
+    async (req, username, password, done) => {
+      const { name } = req.body
+      try {
+        const user = await UserService.getUserByUsername(username)
+        if (user) {
+          return done(null, false)
+        } else {
+          const hashedPassword = await bcrypt.hash(password, 10)
+          const userData = {
+            username,
+            password: hashedPassword,
+            name,
+          }
+          const newUser = await UserService.createUser(userData)
+          return done(null, newUser)
+        }
+      } catch (error) {
+        return done(error)
+      }
+    }
+  )
+)
 
-      .get("/failregister", (req, res) => { 
-        res.render("pages/register-error"); 
-      })
-     
-      .get("/", (req, res) => {
-            res.send({user: req.user })
-    })
-  };
- */
+/* Login */
+passport.use(
+  'login',
+  new LocalStrategy(async (username, password, done) => {
+    try {
+      const user = await UserService.getUserByUsername(username)
+      if (user) {
+        const isValidPassword = await bcrypt.compare(password, user.password)
+        if (!isValidPassword) {
+          return done(null, false)
+        } else {
+          return done(null, user)
+        }
+      } else {
+        return done(null, false)
+      }
+    } catch (error) {
+      return done(error)
+    }
+  })
+)
 
-import UserDTo from "../dto/user.dto.js";
-
-  
-export const configAuthRouter = (authRouter, upload, passport) => {
-  authRouter
-    .post(
-      "/login",
-      passport.authenticate("login", {
-        successRedirect: "http://localhost:3000/",
-        failureRedirect: "/login?error",
-      })
-    )
-    .post(
-      "/register",
-      upload.single("avatar"),
-      passport.authenticate("signup", {
-        successRedirect: "http://localhost:3000/",
-        failureRedirect: "/signup?error",
-      })
-    )
-  .get("/", (req, res) => {
-    const user = new UserDTo (req.user)
-res.send({user: user })
+/* Serializacion y deserializacion de usuario */
+passport.serializeUser((user, done) => {
+  done(null, user.id)
 })
-};
+
+passport.deserializeUser(async (id, done) => {
+  const user = await UserService.getUserById(id)
+  done(null, user)
+})
+
+/* Autorizacion y authenticacion */
+function isAuth(req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/cafeteria/login')
+  }
+}
+
+/* Router */
+const AuthRouter = new Router()
+
+/* Login */
+AuthRouter.get('/login', (req, res) => {
+  res.render('pages/login')
+})
+
+AuthRouter.post('/login', passport.authenticate('login', {
+    successRedirect: '/cafeteria',
+    failureRedirect: '/cafeteria/faillogin',
+  })
+)
+
+AuthRouter.get('/faillogin', (req, res) => {
+  res.render('pages/login-error')
+})
+
+/* Signup */
+AuthRouter.get('/register', (req, res) => {
+  res.render('pages/register')
+})
+
+AuthRouter.post(
+  '/register',
+  passport.authenticate('signup', {
+    successRedirect: '/',
+    failureRedirect: '/cafeteria/failregister',
+    sesion: false,
+  })
+)
+
+AuthRouter.get('/failregister', (req, res) => {
+  res.render('pages/register-error')
+})
+
+AuthRouter.get('/logout', (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err)
+    }
+    res.redirect('/cafeteria/end')
+  })
+})
+
+AuthRouter.get('/end', (req, res) => {
+  res.render('pages/logout')
+})
+
+AuthRouter.get('/', isAuth, (req, res) => {
+  res.render('pages/home')
+})
+
+export default AuthRouter
+
+
+
+

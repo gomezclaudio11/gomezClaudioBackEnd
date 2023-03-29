@@ -7,7 +7,7 @@ export default class ProductService extends serviceFactory{
         super ()
         this.dao = Product;
     }
-    async get ()  {
+    async getAllProducts ()  {
         const data = await this.dao.getAll();
         return data;
     };
@@ -20,6 +20,22 @@ export default class ProductService extends serviceFactory{
     async createProduct (data)  {
         const { title, price, description, thumbnail } = data;
         const res = await this.dao.save ({ title, price, description, thumbnail });
+        return res;
+    }
+
+    async updateProduct(data)  { 
+       
+        const res = await this.dao.updateById(data);
+        return res;
+    }
+
+    async deleteProduct(id)  { 
+        const res = await this.dao.deleteById(id);
+        return res;
+    }
+
+    async deleteAllProduct()  { 
+        const res = await this.dao.deleteAll();
         return res;
     }
 }
