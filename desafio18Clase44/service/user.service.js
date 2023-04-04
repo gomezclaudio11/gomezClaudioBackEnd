@@ -17,7 +17,7 @@ export default class UserService extends serviceFactory {
   }
 
   async getUserByUsername(username) {
-    return await this.dao.getByField('username', username)
+    return await this.dao.getByField("username", username)
   }
 
   async getUserById(id) {

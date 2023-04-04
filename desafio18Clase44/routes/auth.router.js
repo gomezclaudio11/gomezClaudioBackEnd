@@ -12,9 +12,10 @@ const UserService = new UserFactory()
 passport.use(
   'signup',
   new LocalStrategy(
-    { passReqToCallback: true, usernameField: 'username' },
+    { passReqToCallback: true, usernameField: "username" },
     async (req, username, password, done) => {
       const { name } = req.body
+      console.log(username);
       try {
         const user = await UserService.getUserByUsername(username)
         if (user) {
@@ -127,7 +128,7 @@ AuthRouter.get('/end', (req, res) => {
 })
 
 AuthRouter.get('/', isAuth, (req, res) => {
-  res.render('pages/home')
+  res.render('pages/index')
 })
 
 export default AuthRouter

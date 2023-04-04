@@ -1,3 +1,4 @@
+/*
 import express from "express";
 
 import { graphqlHTTP } from "express-graphql";
@@ -66,3 +67,4 @@ app.use ("/graphql", graphqlHTTP(
 ))
 
 app.listen(3001, () => console.log ("conectados"))
+*/

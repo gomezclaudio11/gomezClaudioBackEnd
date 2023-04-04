@@ -8,7 +8,9 @@ const options = {
 
 dotenv.config();
 
-await mongoose.connect(process.env.MONGOBD_CONNECTION_STRING, options);
+await mongoose.connect(process.env.MONGOBD_CONNECTION_STRING, options)
+.then ((db) => console.log( "Mongodb conectado", db.connection.host))
+.catch ((error) => console.log(error))
 
 export default class MongoDbContainer {
   constructor(collectionString, schema) {
@@ -59,8 +61,12 @@ export default class MongoDbContainer {
   }
   async getByField(field, criteria) {
     try {
+      console.log(field);
+      console.log(criteria);
       const data = await this.model.findOne().where(field).equals(criteria);
-     return data;
+     
+      return data;
+
     } catch (error) {
       console.error(error);
     }
