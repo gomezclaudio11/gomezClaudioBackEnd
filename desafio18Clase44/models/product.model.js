@@ -5,4 +5,5 @@ export default new mongoose.Schema({
   price: { type: String, required: true },
   description: { type: String, required: true },
   thumbnail: { type: String, required: true },
+  category: { type: String, required: true },
 })

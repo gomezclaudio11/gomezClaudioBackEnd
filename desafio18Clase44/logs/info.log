@@ -1,0 +1,152 @@
+[2023-04-04T23:44:42.827] [INFO] default - conectado!
+[2023-04-04T23:46:40.460] [INFO] default - conectado!
+[2023-04-04T23:50:56.425] [INFO] default - conectado!
+[2023-04-04T23:51:11.797] [INFO] default - Acceso a: ruta /products/info y método GET correcto
+[2023-04-04T23:51:24.823] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-04-04T23:51:52.706] [INFO] default - Acceso a: ruta /cafeterias/ y método GET correcto
+[2023-04-04T23:52:03.376] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-04T23:52:26.292] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-04T23:52:42.985] [INFO] default - Acceso a: ruta /products y método GET correcto
+[2023-04-04T23:52:50.820] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-04T23:52:54.257] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-04-04T23:53:27.556] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-04T23:53:30.899] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-04T23:54:07.049] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-04T23:54:13.172] [INFO] default - Acceso a: ruta /cafeteria/login y método POST correcto
+[2023-04-04T23:54:14.008] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-04T23:55:50.770] [INFO] default - conectado!
+[2023-04-04T23:55:55.897] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-04T23:56:05.676] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-04T23:56:09.037] [INFO] default - Acceso a: ruta /cafeteria/register y método GET correcto
+[2023-04-04T23:56:14.969] [INFO] default - Acceso a: ruta /cafeteria/register y método POST correcto
+[2023-04-04T23:56:15.935] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-04-04T23:58:46.384] [INFO] default - conectado!
+[2023-04-04T23:58:58.230] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-04T23:59:03.959] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-04T23:59:14.034] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-04T23:59:19.348] [INFO] default - Acceso a: ruta /cafeteria/login y método POST correcto
+[2023-04-04T23:59:20.328] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T00:03:58.684] [INFO] default - Acceso a: ruta /cafeteria/register y método GET correcto
+[2023-04-05T00:04:00.487] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T00:06:51.338] [INFO] default - Acceso a: ruta /cafeteria/products y método GET correcto
+[2023-04-05T00:07:05.716] [INFO] default - Acceso a: ruta /cafeteria/products y método GET correcto
+[2023-04-05T00:07:46.014] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T00:07:51.509] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T00:12:03.203] [INFO] default - conectado!
+[2023-04-05T00:14:35.056] [INFO] default - conectado!
+[2023-04-05T00:15:44.364] [INFO] default - conectado!
+[2023-04-05T00:25:19.129] [INFO] default - conectado!
+[2023-04-05T00:27:51.423] [INFO] default - conectado!
+[2023-04-05T00:32:47.089] [INFO] default - conectado!
+[2023-04-05T00:42:14.638] [INFO] default - conectado!
+[2023-04-05T00:43:56.489] [INFO] default - conectado!
+[2023-04-05T00:45:03.429] [INFO] default - conectado!
+[2023-04-05T00:46:16.120] [INFO] default - conectado!
+[2023-04-05T00:50:41.324] [INFO] default - conectado!
+[2023-04-05T00:53:17.499] [INFO] default - conectado!
+[2023-04-05T20:41:55.337] [INFO] default - conectado!
+[2023-04-05T20:48:10.719] [INFO] default - conectado!
+[2023-04-05T20:48:11.143] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:16.322] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T20:48:16.815] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:17.834] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:19.609] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:19.900] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T20:48:20.401] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:21.621] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:22.252] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T20:48:22.709] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:24.393] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:29.277] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:33.940] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:40.146] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:46.360] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:52.551] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:48:58.757] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:04.957] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:11.213] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:17.418] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:23.608] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:29.832] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:36.079] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:42.291] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:46.885] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T20:49:47.711] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:48.685] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:51.409] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T20:49:51.886] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:52.674] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:54.061] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:49:59.241] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T20:49:59.311] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:50:02.664] [INFO] default - Acceso a: ruta /cafeteria/register y método GET correcto
+[2023-04-05T20:50:11.610] [INFO] default - Acceso a: ruta /cafeteria/register y método POST correcto
+[2023-04-05T20:50:12.269] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-04-05T20:52:33.359] [INFO] default - Acceso a: ruta /cafeteria/register y método POST correcto
+[2023-04-05T20:52:33.651] [INFO] default - Acceso a: ruta /failregister y método GET correcto
+[2023-04-05T20:54:06.911] [INFO] default - conectado!
+[2023-04-05T20:54:15.365] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T20:54:22.909] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-04-05T20:55:17.259] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T20:55:23.864] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-05T20:55:24.551] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:55:26.232] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:55:28.482] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:55:32.565] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-05T20:55:33.006] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:55:34.418] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:55:37.458] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:07.882] [INFO] default - conectado!
+[2023-04-05T20:56:17.789] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T20:56:18.337] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:19.450] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:21.009] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:25.898] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:31.103] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:36.299] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:41.505] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:48.135] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:56:54.387] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:00.576] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:06.773] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:12.976] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:19.179] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:25.394] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:31.613] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:37.821] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:44.076] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T20:57:49.043] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T20:57:53.750] [INFO] default - Acceso a: ruta /cafeteria/register y método GET correcto
+[2023-04-05T20:57:55.546] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T20:58:03.806] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-04-05T21:02:31.177] [INFO] default - conectado!
+[2023-04-05T21:02:47.714] [INFO] default - Acceso a: ruta /cafeteria/register y método GET correcto
+[2023-04-05T21:02:49.352] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T21:02:56.311] [INFO] default - Acceso a: ruta /cafeteria/login y método POST correcto
+[2023-04-05T21:02:57.129] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-04-05T21:04:41.805] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T21:06:11.487] [INFO] default - Acceso a: ruta /cafeteria/login y método POST correcto
+[2023-04-05T21:06:11.533] [INFO] default - Acceso a: ruta /faillogin y método POST correcto
+[2023-04-05T21:06:28.398] [INFO] default - Acceso a: ruta /cafeteria/login y método GET correcto
+[2023-04-05T21:06:44.945] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T21:06:44.972] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-04-05T21:07:05.344] [INFO] default - Acceso a: ruta /cafeteria y método GET correcto
+[2023-04-05T21:07:05.366] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-04-05T21:29:57.537] [INFO] default - Acceso a: ruta /cafeteria/ y método GET correcto
+[2023-04-05T21:29:58.299] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-04-05T21:29:58.348] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:29:59.833] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:02.347] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:07.237] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:12.446] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:17.635] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:22.826] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:28.024] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:33.226] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:38.417] [INFO] default - Acceso a: ruta /socket.io/ y método GET correcto
+[2023-04-05T21:30:40.338] [INFO] default - Acceso a: ruta /products y método POST correcto
+[2023-04-05T21:30:50.613] [INFO] default - Acceso a: ruta /products y método GET correcto
+[2023-04-05T21:31:28.519] [INFO] default - Acceso a: ruta /products/642cd64ca2f38ee833649289 y método GET correcto
+[2023-04-05T21:31:28.950] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-04-05T21:31:42.417] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-04-05T21:31:42.911] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto

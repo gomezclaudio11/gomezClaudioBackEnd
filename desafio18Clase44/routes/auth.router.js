@@ -3,6 +3,8 @@ import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 import bcrypt from 'bcrypt'
 import UserFactory from '../service/user.service.js'
+/* Loggers */
+import {  warnLogger } from '../middlewares/logger.middleware.js';
 
 const UserService = new UserFactory()
 
@@ -74,7 +76,7 @@ function isAuth(req, res, next) {
   if (req.isAuthenticated()) {
     next()
   } else {
-    res.redirect('/cafeteria/login')
+    res.redirect('/login')
   }
 }
 
@@ -87,8 +89,8 @@ AuthRouter.get('/login', (req, res) => {
 })
 
 AuthRouter.post('/login', passport.authenticate('login', {
-    successRedirect: '/cafeteria',
-    failureRedirect: '/cafeteria/faillogin',
+    successRedirect: '/',
+    failureRedirect: '/faillogin',
   })
 )
 
@@ -105,7 +107,7 @@ AuthRouter.post(
   '/register',
   passport.authenticate('signup', {
     successRedirect: '/',
-    failureRedirect: '/cafeteria/failregister',
+    failureRedirect: '/failregister',
     sesion: false,
   })
 )
@@ -119,7 +121,7 @@ AuthRouter.get('/logout', (req, res) => {
     if (err) {
       return next(err)
     }
-    res.redirect('/cafeteria/end')
+    res.redirect('/end')
   })
 })
 
@@ -128,7 +130,11 @@ AuthRouter.get('/end', (req, res) => {
 })
 
 AuthRouter.get('/', isAuth, (req, res) => {
-  res.render('pages/index')
+  res.render('pages/index', { username: req.user.username })
+})
+
+AuthRouter.get('*', warnLogger, (req, res) => {
+  res.render('pages/not-found')
 })
 
 export default AuthRouter

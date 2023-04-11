@@ -1,11 +1,11 @@
-import { userDAO } from '../daos/index.js'
+import { usuarioDAO } from '../daos/index.js'
 import serviceFactory from './serviceFactory.js'
 
 export default class UserService extends serviceFactory {
 
   constructor() {
     super()
-    this.dao = userDAO
+    this.dao = usuarioDAO
   }
 
   async createUser(user) {

@@ -18,8 +18,8 @@ export default class ProductService extends serviceFactory{
     };
     
     async createProduct (data)  {
-        const { title, price, description, thumbnail } = data;
-        const res = await this.dao.save ({ title, price, description, thumbnail });
+        const { title, price, description, category, thumbnail } = data;
+        const res = await this.dao.save ({ title, price, description, category, thumbnail });
         return res;
     }
 

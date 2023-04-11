@@ -1,43 +1,25 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export default class DAOFactory {
-    async getProductDAO () {
-        const { default: ProductDaoMongoDb } = await import (
-            "./product.mongo.dao.js"
-        );
-        return new ProductDaoMongoDb ();
-    } 
-    
-    async getCarritoDAO () {
-        const { default: CarritoDaoMongoDb } = await import (
-            "./carrito.mongo.dao.js"
-            );
-            return new CarritoDaoMongoDb ();
-        }
+    import { PERSISTENCIA } from '../config/persistence.config.js'
 
-    async getUserDAO () {
-        const { default: UsuarioDaoMongoDb } = await import (
-            "./usuario.mongo.dao.js"
-        );
-        return new UsuarioDaoMongoDb ();
+    let productsDAO, carritoDAO, usuarioDAO, mensajeDAO
+
+    switch (PERSISTENCIA) {
+        case 'mongodb':   
+     /* Importaciones dinamicas */
+     const { default: ProductDaoMongoDb } = await import('./product.mongo.dao.js')
+     const { default: CarritoDaoMongoDb } = await import('./carrito.mongo.dao.js')
+     const { default: UsuarioDaoMongoDb } = await import('./usuario.mongo.dao.js')
+     const { default: MensajeDaoMongoDb } = await import('./mensaje.mongo.dao.js')
+ 
+     /* Instanciaciones de daos */
+     productsDAO = new ProductDaoMongoDb()
+     carritoDAO = new CarritoDaoMongoDb()
+     usuarioDAO = new UsuarioDaoMongoDb()
+     mensajeDAO = new MensajeDaoMongoDb()
+
     }
-
-        async getDAOs (){
-            return {
-                productsDAO: this.getProductDAO(),
-                carritoDAO: this.getCarritoDAO(),
-                userDAO: this.getUserDAO()
-            }
-        }
-        
-    }
-
-    const DAOS = new DAOFactory ();
-    DAOS.getProductDAO();
-    DAOS.getCarritoDAO();
-    DAOS.getUserDAO();
-    DAOS.getDAOs();
-    const { productsDAO, carritoDAO, userDAO } = DAOS.getDAOs()
+ /* EXPORT */
+ export { productsDAO, carritoDAO, usuarioDAO, mensajeDAO }
     
-    export { productsDAO, carritoDAO, userDAO } 

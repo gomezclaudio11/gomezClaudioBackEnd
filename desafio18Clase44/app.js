@@ -6,11 +6,13 @@ import ProductRouter from "./routes/products.router.js";
 import CarritoRouter from "./routes/carrito.router.js";
 import AuthRouter from "./routes/auth.router.js";
 
+/* Loggers */
+import { defaultLogger } from './middlewares/logger.middleware.js';
+
 /* SESSION, AUTHENTICATION Y PASSPORT */
 import session from "./config/session.js";
 import passport from "passport";
 
-import * as UserService from "./service/user.service.js";
 import multer from "multer";
 import multerConfig from "./config/multer.config.js";
 
@@ -31,6 +33,10 @@ app.use(session);
 // passport.authenticate()
 app.use(passport.initialize());
 app.use(passport.session());
+/*Loguea todas las peticiones a las rutas */
+app.use(defaultLogger);
+
+
 //--------------------------------------------
 // configuro multer
 
