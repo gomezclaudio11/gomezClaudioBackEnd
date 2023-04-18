@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <header>
+    <%- include("../partials/welcome");%>
+  </header>
+
+  <div class="jumbotron">
+    <h3>PRODUCTOS</h3>
+    <hr>
+    <h4>Ingrese producto</h4>
+    <form class="form-inline" action="/products" method="post">
+      <input class="form-control mb-2 mr-sm-2" type="text" name="title" placeholder="Ingrese nombre" id="">
+      <input class="form-control mb-2 mr-sm-2" type="text" name="price" placeholder="Ingrese precio" id="">
+      <input class="form-control mb-2 mr-sm-2" type="text" name="description" placeholder="Ingrese descripcion" id="">
+      <input class="form-control mb-2 mr-sm-2" type="text" name="category" placeholder="Ingrese categoria" id="">
+      <input class="form-control mb-2 mr-sm-2" type="text" name="thumbnail" placeholder="Foto url" id="">
+      <input class="btn btn-primary" type="submit" value="Enviar">
+    </form>
+  </div>
+
+  <div class="jumbotron">
+    <h3>Historial</h3>
+    <table class="table">
+      <!-- despliegue de la lista de productos -->
+      <tbody id="productList">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Foto</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="jumbotron">
+    <h2>CHAT</h2>
+    <hr>
+    <h4>Crear nuevo mensaje: </h4>
+    <form id="form" class="form-inline">
+      <input class="form-control mb-2 mr-sm-2" placeholder='email' type="text" name="id" id="id">
+      <input class="form-control mb-2 mr-sm-2" placeholder='nombre' type="text" name="name" id="name">
+      <input class="form-control mb-2 mr-sm-2" placeholder='apellido' type="text" name="surname" id="surname">
+      <!-- Atencion: el campo 'edad' estaba como number en la definicion de schema de moongose, realize el cambio a string por si pudira dar error -->
+      <input class="form-control mb-2 mr-sm-2" placeholder='edad' type="text" name="age" id="age">
+      <input class="form-control mb-2 mr-sm-2" placeholder='alias' type="text" name="alias" id="alias">
+      <input class="form-control mb-2 mr-sm-2" placeholder='avatar url' type="text" name="avatar" id="avatar">
+      <input class="form-control mb-2 mr-sm-2" placeholder='mensaje' type="text" name="text" id="text">
+      <input class="btn btn-primary" type="submit" value="Enviar">
+    </form>
+
+    <h3>Mensajes:</h3>
+    <!-- Despliegue de mensajes -->
+    <div id="messages"></div>
+  </div>
+
+  <!-- Importacion de socket a travez de cdn -->
+  <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
+    integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    // log para chequear que se ejecuta este script en el navegador (se visualiza haciendo inspeccionar en la pestaña 'console')
+    console.log("js en el cliente");
+
+    // instanciancion del socket
+    const socket = io();
+
+    // recibe productos y los muestra
+    socket.on("products", (products) => {
+
+      // log para chequear los productos en consola (navegador)
+      console.log({ products });
+
+      // iteracion de la lista de productos
+      const productListHTML = products.map(productItems => `
+          <tr>
+              <th scope="col">${productItems.title}</th>
+              <th scope="col">${productItems.price}</th>
+              <th scope="col">
+                  <img src = ${productItems.thumbnail} style="height: 40px"/>
+              </th>
+          </tr>
+          `).join("");
+
+      // obtencion del elemento HTML para desplegarle la informacion (la lista de los productos)
+      const productList = document.getElementById("productList")
+      productList.innerHTML = productListHTML;
+    });
+
+    // recepcoim de mensajes
+    socket.on('conversation', (messages) => {
+
+      // iteracion de los mensajes
+      // se corrigio un error: para acceder a los atributos id y date primero habia que acceder a author, ya que asi se habian definido anteriormenete
+      // era por esa razon que imprimia "undefined" en ambos atributos
+      const messagesHtml = messages.map((message) => `
+      <div>
+        <strong style= "color: blue">${message.author.id}:  </strong>
+        <em>[<em style="color:brown">${message.author.date}</em>]: <i style= "color: green">${message.text}</i></em>
+      </div>`)
+        .join(' ');
+
+      // acceso al elemento HTML para desplegar la informacion (lista de mensajes)
+      document.getElementById("messages").innerHTML = messagesHtml;
+    });
+
+    // obtengo el elemento HTML form (formulario de chats)
+    const form = document.getElementById("form")
+
+    // obtengo entradas de los inputs del formulario de chats
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const id = document.getElementById('id').value;
+      const name = document.getElementById('name').value;
+      const surname = document.getElementById('surname').value;
+      const age = document.getElementById('age').value;
+      const alias = document.getElementById('alias').value;
+      const avatar = document.getElementById('avatar').value;
+      const text = document.getElementById('text').value;
+
+      //creacion de data en GB para formato en 24hs
+      const date = new Date().toLocaleString("en-GB");
+
+      // log para chequear el mensaje en la consola del navegador
+      console.log(({
+        id, name, surname, age, alias, avatar, date, text
+      }));
+
+      // se crea el objeto mensaje (con los valores obtenidos del formulario)
+      const message = { author: { id, name, surname, age, alias, avatar, date }, text }
+
+      // se envia el mensaje (el objeto creado)
+      socket.emit('new-message', message);
+    });
+  </script>
+</body>
+
+</html>
