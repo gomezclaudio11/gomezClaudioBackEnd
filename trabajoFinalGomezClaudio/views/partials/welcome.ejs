@@ -1,14 +1,29 @@
-<div style="padding: 1rem 2rem; background-color: #e9ecef; border-radius: 0.3rem;">
-  <div class="float-left">
-      <h1>Bienvenido</h1>
-  </div>
-
-  <!-- Cambie el boton para el logout, con el evento onclick->location.href podemos redirnos a esa direccion -->
-  <!-- En caso que no funcione se puede realizar tambien un form con un method="post" action="/logout" y un boton submit dentro -->
-  <!-- Tener en cuenta que de momento no esta andando porque no esta implementado el endpoint /logout -->
-  <div class="float-right">
-      <button class="btn btn-danger" onclick="location.href='/logout'">
-          <b>Desloguear</b>
-      </button>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-grey" style="background-color: #9c9c9c;">
+    <h3 class="navbar-brand">Bienvenido <%= username %>
+    </h3>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <% if (username.rol=="2" ) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/productos">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stats">Info</a>
+        </li>
+      <% } %>
+      </ul>
+      <div class="float-right">
+        <button class="btn btn-danger" onclick="location.href='/logout'">
+            <b>Cerrar sesión</b>
+        </button>
+    </div>
+  </nav>
+<div style="padding: 2% 2% 5% 2%; background-color: #9c9c9c; border-radius: 0.3rem; margin: 2% 2% 2% 2%;">
+    <div class="float-left">
+        <h1 style="font-family: 'Courier New', Courier, monospace;">CAFETERIA <span
+                style="color: rgb(40, 51, 72); font-size: smaller; font-style: oblique; font-family: sans-serif;">Online</span>
+        </h1>
+    </div>
 </div>

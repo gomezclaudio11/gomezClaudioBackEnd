@@ -25,7 +25,7 @@ AuthRouter.get('/faillogin', (req, res) => {
 
 /* Signup */
 AuthRouter.get('/register', (req, res) => {
-  res.render('pages/register')
+  res.render("pages/register")
 })
 
 AuthRouter.post(
@@ -55,7 +55,7 @@ AuthRouter.get('/end', (req, res) => {
 })
 
 AuthRouter.get('/', isAuth, (req, res) => {
-  res.render('pages/index', { username: req.user.username })
+  res.render('pages/home', { username: req.user.username })
 })
 
 AuthRouter.get('/admin/bebidas', isAuth, (req, res) => {

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("../partials/head"); %>
+</head>
+
+<body style="background-color: rgb(40, 40, 40);">
+  <header>
+    <%- include("../partials/welcome"); %>
+  </header>
+
+  <!-- PORTADA -->
+  <div style="background-image: url('https://i.postimg.cc/y6GQhXb6/carolina-marinelli-Pkbyxvk-GWc-U-unsplash.jpg'); 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;">
+  </div>
+
+  <% if (username.rol=='1' ) { %>
+  <!-- LISTA DE BEBIDAS -->
+  <div style="padding: 2% 2% 5% 2%; background-color: #9c9c9c; border-radius: 0.3rem; margin: 2% 2% 2% 2%;">
+    <h2>PRODUCTOS</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <h5>Producto</h5>
+          </th>
+          <th scope="col">
+            <h5>Precio</h5>
+          </th>
+          <th scope="col">
+            <h5>Imagen</h5>
+          </th>
+          <th scope="col">
+          </th>
+        </tr>
+        <hr>
+        <br>
+      </thead>
+      <!-- Bebidas de muestra (no estan en base de datos) -->
+      <tbody>
+        <tr>
+          <td scope="col">Coca-Cola</td>
+          <td scope="col">15</td>
+          <td scope="col"><img src="https://s4d-images.telepizza.es/Products/Original/Coca-Cola_Original_1L_-2535.png"
+              style="height: 80px" /></td>
+          <td scope="col">No disponible</td>
+        </tr>
+        <tr>
+          <td scope="col">Duff</td>
+          <td scope="col">20</td>
+          <td scope="col"><img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/22413.png"
+              style="height: 80px" /></td>
+          <td scope="col">No disponible</td>
+        </tr>
+        <tr>
+          <td scope="col">Llamarada Moe</td>
+          <td scope="col">50</td>
+          <td scope="col"><img
+              src="http://d3ugyf2ht6aenh.cloudfront.net/stores/001/164/129/products/grilla-491-4d93a1196c0344a9b415944381223489-640-0.png"
+              style="height: 80px; border-radius: 20%;" /></td>
+          <td scope="col">No disponible</td>
+
+        </tr>
+        <tr>
+          <td scope="col">Jugo de Tomaco</td>
+          <td scope="col">100</td>
+          <td scope="col"><img src="https://i.pinimg.com/originals/2e/6f/fd/2e6ffd9a718f08b3a89ca124f1006cde.jpg"
+              style="height: 80px; width: 80px; border-radius: 20%;" /></td>
+          <td scope="col">No disponible</td>
+        </tr>
+      <tbody id="drinkList">
+        <!-- Despliegue de lista de bebidas -->
+      </tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PEDIDO -->
+  <div style="padding: 2% 2% 5% 2%; background-color: #9c9c9c; border-radius: 0.3rem; margin: 2% 2% 2% 2%;">
+    <h3>Mi pedido</h3>
+    <hr>
+    <table class="table">
+      <tbody id="productsPedido">
+        <!-- Despliegue de bebidas del pedido -->
+      </tbody>
+    </table>
+    <button class="btn btn-danger" title="Eliminar todas las bebidas del pedido" onClick="vaciarPedido()">Vaciar
+      pedido</button>
+    <button class="btn btn-dark" type="submit" name="comprar" disabled>Enviar pedido</button>
+  </div>
+  <% } %>
+
+  <!-- COMENTARIOS -->
+  <div style="padding: 2% 2% 5% 2%; background-color: #9c9c9c; border-radius: 0.3rem; margin: 2% 2% 2% 2%;">
+    <h2>Comentarios</h2>
+    <hr>
+    <form id="form" autocomplete="off">
+      <div class="form-group">
+        <div id="username" data-username=<%=username %>>
+          <p style="font-weight: bold; color:darkblue;">
+            <%= username %>
+          </p>
+        </div>
+        <label for="text" style="font-weight: bold;">Nuevo comentario:</label>
+        <input class="form-control mb-2 mr-sm-2" placeholder='Escriba su mensaje...' name="text" id="text"
+          rows="3"></input>
+      </div>
+      <input class="btn btn-dark" type="submit" value="Enviar">
+    </form>
+    <hr>
+
+    <!-- Comentarios de muestra (no estan en base de datos) -->
+    <div>
+      <strong style="color:darkblue;">Moe Szyslak</strong>
+      <em>[<em style="color:brown">01/04/2023, 11:05:00</em>]: <i style="color: darkgreen">¡BIENVENIDOS A LA ZONA DE
+          COMENTARIOS!</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Jefe Gorgory</strong>
+      <em>[<em style="color:brown">01/04/2023, 17:10:00</em>]: <i style="color: darkgreen">Hola, no veo la opcion de las
+          rosquillas...</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Homero Simpson</strong>
+      <em>[<em style="color:brown">02/04/2023, 06:10:00</em>]: <i style="color: darkgreen">Alguien sabe si esta abierto
+          el bar?</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Homero Simpson</strong>
+      <em>[<em style="color:brown">02/04/2023, 06:11:00</em>]: <i style="color: darkgreen">Estoy ansioso de volver a
+          probar una Llamarada Moe</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Barney Gomez</strong>
+      <em>[<em style="color:brown">02/04/2023, 06:13:00</em>]: <i style="color: darkgreen">Hola Homero, estoy esperando
+          afuera hasta que abra...</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Carl</strong>
+      <em>[<em style="color:brown">02/04/2023, 06:18:00</em>]: <i style="color: darkgreen">Muchachos son las 6 de la
+          mañana...</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Flanders</strong>
+      <em>[<em style="color:brown">02/04/2023, 06:19:00</em>]: <i style="color: darkgreen">Hola tarolas! Vecinirigillos!
+          Se que es temprano pero si gustan una cerveza pueden venir a mi sala de juegos!</i></em>
+    </div>
+    <div>
+      <strong style="color: darkblue">Homero Simpson: </strong>
+      <em>[<em style="color:brown">02/04/2023, 06:21:00</em>]: <i style="color: darkgreen">Deja dormir al projimo
+          Flanderssss!</i></em>
+    </div>
+    <div id="mensajes">
+      <!-- Despliegue de comentarios -->
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- Importacion de socket a travez de cdn -->
+  <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
+    integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous">
+    </script>
+
+  <script src="/js/home.js"></script>
+
+</body>
+
+</html>

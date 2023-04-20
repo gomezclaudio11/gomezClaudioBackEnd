@@ -1,4 +1,4 @@
-import { loggerError } from "../config/logger.config"
+import { loggerError } from "../config/logger.config.js"
 
 export default class serviceFactory {
 
