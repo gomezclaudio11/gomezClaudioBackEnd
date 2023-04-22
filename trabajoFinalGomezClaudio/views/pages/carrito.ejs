@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("../partials/head"); %>
+</head>
+
+<body style="background-color: #a3927257;">
+  <header>
+    <%- include("../partials/welcome"); %>
+  </header>
+  
+  
+  <!-- PEDIDO -->
+  <div style="padding: 2% 2% 5% 2%; background-color: #a3927257; border-radius: 0.3rem; margin: 2% 2% 2% 2%;">
+    <h3>Mi pedido</h3>
+    <hr>
+    <table class="table">
+      <tbody id="productsPedido">
+        <!-- Despliegue de bebidas del pedido -->
+        <table class="table">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Foto</th>
+              </tr>
+            </tbody>
+          </table>
+      </tbody>
+    </table>
+    <button class="btn btn-danger" title="Eliminar todas las bebidas del pedido" onClick="vaciarPedido()">Vaciar
+      pedido</button>
+    <button class="btn btn-dark" type="submit" name="comprar" disabled>Enviar pedido</button>
+  </div>
+</body>
+
+</html>

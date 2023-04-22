@@ -1,49 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <%- include('../partials/head'); %>
-</head>
-<body>
-  <header>
-    <%- include('../partials/header'); %>
-  </header>
-
-  <div class="jumbotron">
-  <h1>Productos</h1>
-  <% if (productos.length && productos.length != 0) { %>
-    
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Foto</th>
-        </tr>
-      </thead>
-      <tbody>
-    
-    <% productos.forEach((producto) => { %>
-        <tr>
-          <td><%= producto.nombre %></td>
-          <td><%= producto.precio %></td>
-          <td><img style= "height: 40px;" src=<%= producto.url %>> </td>
-        </tr>
-        <% }); %>
-       
-      </tbody>
-    </table>
-
-    <% } else { %>
-      <h3>No se encontraron productos</h3>
-    <% } %>
-
-  </div>
-</body>
-</html>
---->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,42 +31,41 @@
                 <hr>
                 <br>
             </thead>
-            <!-- Bebidas de muestra (no estan en base de datos) -->
-            <tbody>
-                <tr>
-                    <td scope="col">Coca-Cola</td>
-                    <td scope="col">15</td>
-                    <td scope="col"><img
-                            src="https://s4d-images.telepizza.es/Products/Original/Coca-Cola_Original_1L_-2535.png"
-                            style="height: 80px" /></td>
-                    <td scope="col">No disponible</td>
-                </tr>
-                <tr>
-                    <td scope="col">Duff</td>
-                    <td scope="col">20</td>
-                    <td scope="col"><img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/22413.png"
-                            style="height: 80px" /></td>
-                    <td scope="col">No disponible</td>
-                </tr>
-                <tr>
-                    <td scope="col">Llamarada Moe</td>
-                    <td scope="col">50</td>
-                    <td scope="col"><img
-                            src="http://d3ugyf2ht6aenh.cloudfront.net/stores/001/164/129/products/grilla-491-4d93a1196c0344a9b415944381223489-640-0.png"
-                            style="height: 80px; border-radius: 20%;" /></td>
-                    <td scope="col">No disponible</td>
-
-                </tr>
-                <tr>
-                    <td scope="col">Jugo de Tomaco</td>
-                    <td scope="col">100</td>
-                    <td scope="col"><img
-                            src="https://i.pinimg.com/originals/2e/6f/fd/2e6ffd9a718f08b3a89ca124f1006cde.jpg"
-                            style="height: 80px; width: 80px; border-radius: 20%;" /></td>
-                    <td scope="col">No disponible</td>
-                </tr>
-            <tbody id="productList">
+         <!-- Bebidas de muestra (no estan en base de datos) -->
+         <tbody>
+            <tr>
+              <td scope="col">Cafe Cortado</td>
+              <td scope="col">150</td>
+              <td scope="col"><img src="https://i.postimg.cc/Bn2YWjNH/jeremy-yap-jn-Ha-GWe4yw-unsplash.jpg"
+                  style="height: 80px; border-radius: 20%;" /></td>
+              <td scope="col">Solo Muestra</td>
+            </tr>
+            <tr>
+              <td scope="col">Cafe Expresso</td>
+              <td scope="col">200</td>
+              <td scope="col"><img src="https://i.postimg.cc/0NcCxDSM/photo-1498709112912-9be3173d30be-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-MXxhb.jpg"
+                  style="height: 80px; border-radius: 20%;" /></td>
+              <td scope="col">Solo Muestra</td>
+            </tr>
+            <tr>
+              <td scope="col">Late</td>
+              <td scope="col">150</td>
+              <td scope="col"><img
+                  src="https://i.postimg.cc/PfZ2vpsc/photo-1541167760496-1628856ab772-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-MXxhb.jpg"
+                  style="height: 80px; border-radius: 20%;" /></td>
+              <td scope="col">Solo Muestra</td>
+    
+            </tr>
+            <tr>
+              <td scope="col">Te Helado</td>
+              <td scope="col">100</td>
+              <td scope="col"><img src="https://i.postimg.cc/LXFgcsCY/photo-1571934811356-5cc061b6821f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-MXxhb.jpg"
+                  style="height: 80px; width: 80px; border-radius: 20%;" /></td>
+              <td scope="col">Solo Muestra</td>
+            </tr>
+          <tbody id="productsList"">
                 <!-- Despliegue de lista de bebidas -->
+                
             </tbody>
             </tbody>
         </table>
@@ -152,10 +105,9 @@
             <div class="form-group">
                 <label for="category">Categoría:</label>
                 <select name="category" class="form-control" required>
-                    <option value="jugo" selected>Jugo</option>
-                    <option value="gaseosa">Gaseosa</option>
-                    <option value="cerveza">Cerveza</option>
-                    <option value="trago">Trago</option>
+                    <option value="bebida" selected>Bebida</option>
+                    <option value="comida">Comida</option>
+                    <option value="Accesorios">Accesorios</option>
                 </select>
             </div>
 

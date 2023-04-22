@@ -58,8 +58,15 @@ AuthRouter.get('/', isAuth, (req, res) => {
   res.render('pages/home', { username: req.user.username })
 })
 
-AuthRouter.get('/admin/bebidas', isAuth, (req, res) => {
-  res.render('pages/bebidas', { username: req.user.username, rol: req.user.rol })
+AuthRouter.get('/adminProductos', isAuth, (req, res) => {
+  res.render('pages/adminProducts', { username: req.user.username, rol: req.user.rol })
+})
+
+AuthRouter.get('/productos', isAuth, (req, res) => {
+  res.render('pages/home', { username: req.user.username, rol: req.user.rol })
+})
+AuthRouter.get('/carrito', isAuth, (req, res) => {
+  res.render('pages/carrito', { username: req.user.username, rol: req.user.rol })
 })
 
 AuthRouter.get('*', warnLogger, (req, res) => {
