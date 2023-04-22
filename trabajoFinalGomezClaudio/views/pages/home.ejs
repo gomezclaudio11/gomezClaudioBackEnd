@@ -42,6 +42,12 @@
           <th scope="col">
           </th>
         </tr>
+       
+        <tr>
+          <th scope = "col">
+            <h6> </h6>
+          </th>
+        </tr>
         <hr>
         <br>
       </thead>
@@ -77,8 +83,12 @@
               style="height: 80px; width: 80px; border-radius: 20%;" /></td>
           <td scope="col">Solo Muestra</td>
         </tr>
-      <tbody id="drinkList">
-        <!-- Despliegue de lista de bebidas -->
+      <tbody id="productsList">
+        <!-- Despliegue de lista de Productos -->
+        <script>
+        getProducts() 
+        </script>
+          
       </tbody>
       </tbody>
     </table>
@@ -138,9 +148,46 @@
   <!-- Importacion de socket a travez de cdn -->
   <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
     integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous">
-    </script>
+     </script>
 
-  <script src="/js/home.js"></script>
+  <script src="/js/home.js">
+
+    function getProducts () {
+            console.log('getProducts...')
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }
+            return fetch('/productos', options)
+                .then(response => response.json())
+                .then((products) => {
+                    const productsListHTML = products
+                        .map(
+                            (products) => `
+            <tr>
+                <td scope="col">${products.title}</td>
+                <td scope="col">${products.price}</td>
+                <td scope="col">
+                    <img src = ${products.thumbnail} style="height: 80px; width: 80px; border-radius: 20%;"/>
+                </td>
+                <td scope="col"><button class="btn btn-danger" title="Eliminar bebida" id="${products.id}" onClick="eliminarBebida(event)">Eliminar</button></td>
+            </tr>
+            `
+                        )
+                        .join('')
+
+                    const productsList = document.getElementById('productsList')
+                  productsList.innerHTML = productsListHTML
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+
+
+  </script>
 
 </body>
 

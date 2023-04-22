@@ -9,18 +9,18 @@ export default class MensajeService extends serviceFactory{
     }
 
     async getAllMensajes()  {
-        const data = await this.dao.listarAll();
+        const data = await this.dao.getAll();
         return data;
     };
     
     async getMensajeById(id) {
-        const data = await this.dao.listarById(id);
+        const data = await this.dao.getById(id);
         return data;
     };
     
     async createMensaje(data)  {
         // const { name } = data;
-        const res = await this.dao.guardar(data);
+        const res = await this.dao.save(data);
         return res;
     }
 }

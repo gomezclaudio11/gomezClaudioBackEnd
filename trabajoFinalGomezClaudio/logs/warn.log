@@ -1153,3 +1153,4 @@
 [2023-04-21T21:50:57.210] [WARN] warnFile - Recurso Inexistente: ruta /socket.io/ y método GET no definida
 [2023-04-21T21:51:00.856] [WARN] warnFile - Recurso Inexistente: ruta /socket.io/ y método GET no definida
 [2023-04-21T21:51:06.061] [WARN] warnFile - Recurso Inexistente: ruta /socket.io/ y método GET no definida
+[2023-04-21T22:31:52.276] [WARN] warnFile - Recurso Inexistente: ruta /favicon.ico y método GET no definida

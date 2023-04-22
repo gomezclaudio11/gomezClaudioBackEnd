@@ -2,7 +2,7 @@
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
-
+import config from "./config/server.config.js"
 
 /* Loggers */
 import { defaultLogger, warnLogger } from './middlewares/logger.middleware.js';
@@ -147,7 +147,10 @@ app.get('*', warnLogger, (req, res) => {
 })
 
 /* Escucha del server */
-app.listen(8080, () => loggerDefault.info('conectado!'))
-
+server.listen(config.PORT, () => {
+  loggerDefault.info(
+    `Proceso #${process.pid} del servidor esta escuchando en el puerto ${server.address().port}`
+  )
+})
 /* En caso de fallo del server */
 server.on('error', (error) => loggerError.error(`Error en servidor ${error}`))

@@ -3,7 +3,7 @@ import ProductSchema from "../models/product.model.js"
 
 class ProductDaoMongoDb extends MongoDbContainer {
     constructor() {
-        super ("producto", ProductSchema);
+        super ("products", ProductSchema);
     }
 }
 
