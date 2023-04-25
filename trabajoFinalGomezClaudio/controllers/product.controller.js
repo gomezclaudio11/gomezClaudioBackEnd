@@ -9,13 +9,9 @@ export const getAllProduct = async (req, res) => {
 
 export const getProductById = async (req, res) => {
     const { id } = req.params;
-    const data = await ProductServices.getProductById(id);
-    if (!data) {
-      res.send("Producto inexistente")
-    } else {      
-      res.send(data);
-    }
-};
+   res.send (await ProductServices.getProductById(id) );
+    };
+
 
 export const postProduct = async (req, res) => {
     const data = await ProductServices.createProduct(req.body);

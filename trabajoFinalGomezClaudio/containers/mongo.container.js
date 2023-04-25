@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import { loggerDefault, loggerError } from "../config/logger.config.js"
+import { asPOJO, renombrarCampo, eliminarCampo } from '../utils/object.utils.js'
 
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  //useCreateIndex: true,
+  serverSelectionTimeoutMS: 5000
 };
 
 dotenv.config();
@@ -15,39 +18,50 @@ await mongoose.connect(process.env.MONGOBD_CONNECTION_STRING, options)
 
 export default class MongoDbContainer {
   constructor(collectionString, schema) {
-    this.model = mongoose.model(collectionString, schema);
+    this.coleccion = mongoose.model(collectionString, schema);
   }
 
   async getById(id) {
     try {
-      const item = await this.model.findOne({ _id: id });
-      return item;
+      const docs = await this.coleccion.find({ _id: id }, { __v: 0 })
+      if (docs.length == 0) {
+        loggerError.error('Error al listar por id: no encontrado')
+        return 
+      } else {
+        const result = renombrarCampo(asPOJO(docs[0]), '_id', 'id')
+        return result
+      }
     } catch (error) {
-      loggerError.error(error);
+      loggerError.error(`Error al listar por id: ${error}`)
     }
   }
 
   async getAll() {
     try {
-      const data = await this.model.find({});
-      return data;
+      let docs = await this.coleccion.find({}, { __v: 0 }).lean()
+      docs = docs.map(asPOJO)
+      docs = docs.map((doc) => renombrarCampo(doc, '_id', 'id'))
+      return docs
     } catch (error) {
-      loggerError.error(error);
+      loggerError.error(`Error al listar todo: ${error}`)
     }
   }
 
-  async save(itemData) {
+  async save(nuevoElem) {
     try {
-      const data = await this.model.create(itemData);
-      return data;
+      let doc = await this.coleccion.create(nuevoElem)
+      doc = asPOJO(doc)
+      renombrarCampo(doc, '_id', 'id')
+      eliminarCampo(doc, '__v')
+      return doc
     } catch (error) {
-      loggerError.error(error);
+      loggerError.error(`Error al guardar: ${error}`)
     }
   }
 
   async updateById(id, itemData) {
     try {
-      await this.model.updateOne({ _id: id }, { $set: { ...itemData } });
+      await this.coleccion.updateOne({ _id: id }, { $set: { ...itemData } });
     } catch (error) {
       loggerError.error(error);
     }
@@ -56,7 +70,7 @@ export default class MongoDbContainer {
   async actualizar(nuevoElem) {
     try {
       renombrarCampo(nuevoElem, 'id', '_id')
-      const { n, nModified } = await this.model.replaceOne(
+      const { n, nModified } = await this.coleccion.replaceOne(
         { _id: nuevoElem._id },
         nuevoElem
       )
@@ -75,14 +89,14 @@ export default class MongoDbContainer {
 
   async deleteById(id) {
     try {
-      await this.model.deleteOne({ _id: id });
+      await this.coleccion.deleteOne({ _id: id });
     } catch (error) {
       loggerError.error(error);
     }
   }
   async getByField(field, criteria) {
     try {
-        const data = await this.model.findOne().where(field).equals(criteria);
+        const data = await this.coleccion.findOne().where(field).equals(criteria);
         return data;
     } catch (error) {
       loggerError.error(error);
@@ -90,7 +104,7 @@ export default class MongoDbContainer {
   }
   async deleteAll() {
     try {
-      await this.model.deleteMany({});
+      await this.coleccion.deleteMany({});
     } catch (error) {
       console.error(error);
     }

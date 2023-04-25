@@ -16,13 +16,12 @@ export default class ProductService extends serviceFactory{
     async getProductById (id) {
         const data = await this.dao.getById(id);
         if(!data)
-            loggerDefault.info("Bebida no encontrada")
+            loggerDefault.info("Producto no encontrada")
         return data;
     };
     
     async createProduct (data)  {
-        const { title, price, description, category, thumbnail } = data;
-        const res = await this.dao.save ({ title, price, description, category, thumbnail });
+        const res = await this.dao.save (data);
         return res;
     }
 

@@ -1,0 +1,8 @@
+[2023-04-24T23:28:41.526] [ERROR] errorFile - option usecreateindex is not supported
+[2023-04-24T23:28:51.798] [ERROR] errorFile - Error al listar todo: MongooseError: Operation `mensajes.find()` buffering timed out after 10000ms
+[2023-04-24T23:29:42.428] [ERROR] errorFile - Error al listar por id: MongooseError: Operation `usuarios.find()` buffering timed out after 10000ms
+[2023-04-24T23:30:01.525] [ERROR] errorFile - Error al listar por id: MongooseError: Operation `usuarios.find()` buffering timed out after 10000ms
+[2023-04-24T23:30:14.249] [ERROR] errorFile - option usecreateindex is not supported
+[2023-04-24T23:30:31.248] [ERROR] errorFile - Error al listar por id: MongooseError: Operation `usuarios.find()` buffering timed out after 10000ms
+[2023-04-24T23:40:09.650] [ERROR] errorFile - option usecreateindex is not supported
+[2023-04-24T23:40:27.566] [ERROR] errorFile - Error al listar por id: MongooseError: Operation `usuarios.find()` buffering timed out after 10000ms

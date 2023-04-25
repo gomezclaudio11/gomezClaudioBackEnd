@@ -8,20 +8,20 @@ function getProducts () {
   const options = {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   }
   return fetch('/productos', options)
     .then(response => response.json())
-    .then((products) => {
-      const productsListHTML = products
+    .then((productos) => {
+      const productsListHTML = productos
         .map(
-          (products) => `
+          (product) => `
             <tr>
-                <td scope="col">${products.title}</td>
-                <td scope="col">${products.price}</td>
+                <td scope="col">${product.title}</td>
+                <td scope="col">${product.price}</td>
                 <td scope="col">
-                    <img src = ${products.thumbnail} style="height: 80px; width: 80px; border-radius: 20%;"/>
+                    <img src = ${product.thumbnail} style="height: 80px; width: 80px; border-radius: 20%;"/>
                 </td>
                 <td scope="col"><button class="btn btn-success" title="Agregar bebida al pedido" id="${drink.id}" onClick="agregarAlPedido(event)">Agregar</button></td>
             </tr>
@@ -58,7 +58,7 @@ function postProductToPedido(idProduct) {
 
 function agregarAlPedido(event) {
   const idProducts = event.target.id
-  postDrinkToPedido(idProducts)
+  postProductToPedido(idProducts)
 }
 
 /* Se recibe el pedido y se renderiza en el HTML */
@@ -72,8 +72,8 @@ function getPedido() {
   }
   return fetch('/carrito', options)
     .then(response => response.json())
-    .then((pedido) => {
-      const products = pedido.products
+    .then((carritos) => {
+      const products = carritos.product
       if (products && products != []) {
         const productsPedidoHTML = products
           .map(

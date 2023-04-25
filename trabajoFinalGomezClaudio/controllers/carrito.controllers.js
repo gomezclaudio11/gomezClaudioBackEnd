@@ -23,14 +23,14 @@ export const deleteCarrito = async (req, res) => {
     res.send(data)
   }
   
-  export const postDrinkToCarrito = async (req, res) => {
+  export const postProductToCarrito = async (req, res) => {
     const { id } = req.params
     const username = req.user.username
     const data = await CarritoService.addDrinkToPedido(username)
     res.send(data)
   }
   
-  export const deleteDrinkFromCarrito = async (req, res) => {
+  export const deleteProductFromCarrito = async (req, res) => {
     const { id } = req.params
     const username = req.user.username
     const data = await CarritoService.deleteDrinkFromPedido(username)
