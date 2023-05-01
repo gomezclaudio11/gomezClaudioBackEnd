@@ -23,7 +23,7 @@ function getProducts () {
                 <td scope="col">
                     <img src = ${product.thumbnail} style="height: 80px; width: 80px; border-radius: 20%;"/>
                 </td>
-                <td scope="col"><button class="btn btn-success" title="Agregar bebida al pedido" id="${drink.id}" onClick="agregarAlPedido(event)">Agregar</button></td>
+                <td scope="col"><button class="btn btn-success" title="Agregar bebida al pedido" id="${product.id}" onClick="agregarAlPedido(event)">Agregar</button></td>
             </tr>
             `
         )
@@ -112,7 +112,7 @@ function deleteProductFromPedido(idProduct) {
       'Content-Type': 'application/json',
     }
   }
-  return fetch(`/pedidos/${idProduct}`, options)
+  return fetch(`/carrito/${idProduct}`, options)
     .then(() => {
       getPedido()
     })
@@ -135,7 +135,7 @@ function vaciarPedido() {
       'Content-Type': 'application/json',
     }
   }
-  return fetch('/pedidos', options)
+  return fetch('/carrito', options)
     .then(() => {
       getPedido()
     })

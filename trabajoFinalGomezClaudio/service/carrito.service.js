@@ -24,11 +24,11 @@ async deleteCarritoByUser (user) {
 async addProductToCarrito (username, idProduct)  {
    let carrito = await this.carritoDao.getByField("username", username)
    if(!carrito){
-    carrito = await this.carritoDAO.save({ username: username, product: []})
+    carrito = await this.carritoDao.save({ username: username, productos: []})
    }
    const product = await this.productsDao.getById(idProduct)
    if (product) {
-    carrito.product.push(product)
+    carrito.productos.push(product)
     await this.carritoDao.actualizar(carrito)
     return idProduct
 }
@@ -38,9 +38,9 @@ return idProduct
 async deleteProductFromCarrito (username, idProduct) {
     const carrito = await this.carritoDao.getByField("username", username)
     if (carrito && carrito != []){
-        const index = carrito.products.findIndex((p) => p.id == idProduct)
+        const index = carrito.productos.findIndex((p) => p.id == idProduct)
         if (index != -1) {
-            carrito.products.splice(index, 1)
+            carrito.productos.splice(index, 1)
             await this.carritoDao.actualizar(carrito)
         }
     }

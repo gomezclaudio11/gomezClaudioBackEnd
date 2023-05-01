@@ -3,7 +3,7 @@ import MensajeSchema from '../models/mensaje.model.js'
 
 class MensajeDaoMongoDb extends MongoDbContainer {
   constructor() {
-    super('mensaje', MensajeSchema)
+    super('mensajes', MensajeSchema)
   }
 }
 

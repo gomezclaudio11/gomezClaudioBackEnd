@@ -15,7 +15,7 @@ export const getProductById = async (req, res) => {
 
 export const postProduct = async (req, res) => {
     const data = await ProductServices.createProduct(req.body);
-    res.redirect("/productos")
+    res.redirect("admin/productos")
 };
 
 export const updateProduct = async (req, res) => {

@@ -23,7 +23,7 @@
     background-color: #999;">
   </div>
 
-  <% if (rol = "1" ) { %>
+  <% if (rol == "1" ) { %>
   <!-- LISTA DE BEBIDAS -->
   <div style="padding: 2% 2% 5% 2%; background-color: #a3927257; border-radius: 0.3rem; margin: 2% 2% 2% 2%;">
     <h2>PRODUCTOS</h2>
@@ -150,65 +150,7 @@
 
   <script src="/js/home.js">
 
-    function getProducts () {
-            console.log('getProducts...')
-            const options = {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-            return fetch('/productos', options)
-                .then(response => response.json())
-                .then((productos) => {
-                    const productsListHTML = productos
-                        .map(
-                            (product) => `
-            <tr>
-                <td scope="col">${product.title}</td>
-                <td scope="col">${product.price}</td>
-                <td scope="col">
-                    <img src = ${product.thumbnail} style="height: 80px; width: 80px; border-radius: 20%;"/>
-                </td>
-                <td scope="col"><button class="btn btn-danger" title="Eliminar bebida" id="${product.id}" onClick="eliminarBebida(event)">Eliminar</button></td>
-            </tr>
-            `
-                        )
-                        .join('')
-
-                    const productsList = document.getElementById('productsList')
-                  productsList.innerHTML = productsListHTML
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        }
-
-        function eliminarBebida (event) {
-          const idProduct = event.target.id
-          deleteProduct(idProduct)
-        }
-
-        function deleteProduct(idProduct) {
-          console.log('deleteProduct...')
-            const options = {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            }
-            return fetch(`/productos/${idProduct}`, options)
-                .then(() => {
-                  ()
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        }
-        getProducts()
-        
-
-
+    
   </script>
 
 </body>

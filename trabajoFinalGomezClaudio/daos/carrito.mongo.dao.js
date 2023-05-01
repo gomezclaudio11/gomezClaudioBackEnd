@@ -4,16 +4,16 @@ import { loggerError } from "../config/logger.config.js";
 
 class CarritoDaoMongoDb extends MongoDbContainer {
     constructor () {
-        super ("carrito", CarritoSchema);
+        super ("carritos", CarritoSchema);
     }
 
-    async save (carrito = { producto: []}) {
+    async save (carrito = { productos: []}) {
         return super.save(carrito)
     }
 
     async deleteCarritoByUser (user) {
         try {
-            const { n, nDeleted } = await this.model.deleteOne({ username: user })
+            const { n, nDeleted } = await this.coleccion.deleteOne({ username: user })
             if (n == 0 || nDeleted == 0) {
               throw new Error('Error al borrar: no encontrado')
             }

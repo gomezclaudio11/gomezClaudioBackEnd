@@ -3,7 +3,7 @@ import passport from 'passport';
 import { isAuth } from '../middlewares/auth.middleware.js';
 
 /* Loggers */
-import {  warnLogger } from '../middlewares/logger.middleware.js';
+//import {  warnLogger } from '../middlewares/logger.middleware.js';
 
 /* Router */
 const AuthRouter = new Router()
@@ -55,20 +55,13 @@ AuthRouter.get('/end', (req, res) => {
 })
 
 AuthRouter.get('/', isAuth, (req, res) => {
-  res.render('pages/home', { username: req.user.username })
-})
-
-AuthRouter.get('/adminProductos', isAuth, (req, res) => {
-  res.render('pages/adminProducts', { username: req.user.username, rol: req.user.rol })
-})
-
-AuthRouter.get('/productos', isAuth, (req, res) => {
   res.render('pages/home', { username: req.user.username, rol: req.user.rol })
 })
 
-AuthRouter.get('/carrito', isAuth, (req, res) => {
-  res.render('pages/carrito', { username: req.user.username, rol: req.user.rol })
+AuthRouter.get('/admin/productos', isAuth, (req, res) => {
+  res.render('pages/adminProducts', { username: req.user.username, rol: req.user.rol })
 })
+
 
 /************ / INFO ***********/
 AuthRouter.get('/stats', isAuth, (req, res) => {
@@ -101,8 +94,5 @@ AuthRouter.get('/stats', isAuth, (req, res) => {
   })
 })
 
-AuthRouter.get('*', warnLogger, (req, res) => {
-  res.render('pages/not-found')
-})
 
 export default AuthRouter

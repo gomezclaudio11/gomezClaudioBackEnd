@@ -1,4 +1,4 @@
-import MensajeFactory from '../service/drink.service.js'
+import MensajeFactory from '../service/product.service.js'
 
 const MensajeService = new MensajeFactory()
 
