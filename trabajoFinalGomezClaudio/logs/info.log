@@ -2638,3 +2638,481 @@
 [2023-04-30T22:40:37.609] [INFO] default - Usuario autenticado ds
 [2023-04-30T22:40:38.555] [INFO] default - Acceso a: ruta /admin/asdas y método GET correcto
 [2023-04-30T22:40:38.578] [INFO] default - Acceso a: ruta /admin/asdsad y método GET correcto
+[2023-05-02T21:57:48.497] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-02T21:57:49.114] [INFO] default - Proceso #5644 del servidor esta escuchando en el puerto 8080
+[2023-05-02T21:59:19.551] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T21:59:22.253] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-05-02T21:59:31.503] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T21:59:32.807] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T21:59:32.809] [INFO] default - Usuario autenticado gs
+[2023-05-02T21:59:33.540] [INFO] default - Nuevo cliente socket conectado - id: WZQZxfUP6S0HzRkwAAAB
+[2023-05-02T21:59:33.637] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T21:59:33.640] [INFO] default - Usuario autenticado gs
+[2023-05-02T21:59:33.978] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T21:59:33.980] [INFO] default - Usuario autenticado gs
+[2023-05-02T21:59:56.502] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T21:59:56.505] [INFO] default - Usuario autenticado gs
+[2023-05-02T21:59:56.810] [INFO] default - Nuevo cliente socket conectado - id: MRAI_ULQs1mup8_0AAAD
+[2023-05-02T21:59:57.090] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T21:59:57.093] [INFO] default - Usuario autenticado gs
+[2023-05-02T21:59:57.324] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-05-02T21:59:57.599] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T21:59:57.601] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:00:27.907] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-05-02T22:00:34.238] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:00:35.046] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:00:35.047] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:00:35.822] [INFO] default - Nuevo cliente socket conectado - id: 0EQjGhRMeaGNBG5sAAAF
+[2023-05-02T22:00:37.912] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:00:37.972] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:00:38.339] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:00:38.340] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:00:40.223] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:00:40.247] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:01:17.700] [INFO] default - Acceso a: ruta /register y método GET correcto
+[2023-05-02T22:01:53.673] [INFO] default - Acceso a: ruta /register y método POST correcto
+[2023-05-02T22:01:54.184] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:01:54.185] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:01:54.920] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:01:54.922] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:01:54.972] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:01:54.976] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:01:54.987] [INFO] default - Nuevo cliente socket conectado - id: 37Lfv9nuhnDWOv_cAAAH
+[2023-05-02T22:01:55.471] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:01:55.551] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:02:05.836] [INFO] default - Acceso a: ruta /admin/productos y método GET correcto
+[2023-05-02T22:02:05.860] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:02:06.365] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:02:06.393] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:02:06.799] [INFO] default - Acceso a: ruta /admin/asdas y método GET correcto
+[2023-05-02T22:02:06.816] [INFO] default - Acceso a: ruta /admin/asdsad y método GET correcto
+[2023-05-02T22:03:48.911] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-02T22:03:49.182] [INFO] default - Proceso #2636 del servidor esta escuchando en el puerto 8080
+[2023-05-02T22:03:51.762] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:03:51.767] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:03:51.918] [INFO] default - Nuevo cliente socket conectado - id: gGCpg4uPnBiJFua6AAAB
+[2023-05-02T22:03:58.215] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T22:04:06.320] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:04:07.141] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:04:07.143] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:04:07.783] [INFO] default - Nuevo cliente socket conectado - id: wE5bVpZZJkilxDBfAAAD
+[2023-05-02T22:04:07.819] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:04:07.821] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:04:07.836] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:04:07.838] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:04:08.347] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:04:08.366] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:04:26.917] [INFO] default - Acceso a: ruta /carrito/6444886a2e11d805612bfb91 y método POST correcto
+[2023-05-02T22:04:26.918] [INFO] default - Usuario autenticado sm
+[2023-05-02T22:43:28.205] [INFO] default - Proceso #10084 del servidor esta escuchando en el puerto 8080
+[2023-05-02T22:43:33.194] [INFO] default - Nuevo cliente socket conectado - id: -tE8_XN9NKawpF3pAAAB
+[2023-05-02T22:45:03.935] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-02T22:45:04.069] [INFO] default - Proceso #7100 del servidor esta escuchando en el puerto 8080
+[2023-05-02T22:45:06.400] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T22:45:22.595] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:45:24.975] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:45:24.978] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:45:25.866] [INFO] default - Nuevo cliente socket conectado - id: 5YTE5A19ETQIU52LAAAB
+[2023-05-02T22:45:27.018] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:45:27.031] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:45:28.214] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:45:28.238] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:45:28.263] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:45:28.278] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:45:32.521] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:45:32.522] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:45:41.303] [INFO] default - Nuevo cliente socket conectado - id: jgykMT4nyeEbIm-DAAAD
+[2023-05-02T22:45:49.548] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:45:50.019] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:45:50.021] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:45:50.613] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:45:50.623] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:45:50.655] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:45:50.657] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:45:50.861] [INFO] default - Nuevo cliente socket conectado - id: _hJ_dw-A5W1qJLJaAAAF
+[2023-05-02T22:45:55.944] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:45:55.948] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:02.741] [INFO] default - Nuevo cliente socket conectado - id: 2Gpnph7NXQGFnzuZAAAH
+[2023-05-02T22:46:09.540] [INFO] default - Acceso a: ruta /admin/productos y método GET correcto
+[2023-05-02T22:46:09.547] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:10.257] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:46:10.488] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:11.081] [INFO] default - Acceso a: ruta /admin/asdas y método GET correcto
+[2023-05-02T22:46:11.186] [INFO] default - Acceso a: ruta /admin/asdsad y método GET correcto
+[2023-05-02T22:46:50.127] [INFO] default - Acceso a: ruta /productos y método POST correcto
+[2023-05-02T22:46:50.128] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:50.388] [INFO] default - Acceso a: ruta /admin/productos y método GET correcto
+[2023-05-02T22:46:50.389] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:50.841] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:46:50.843] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:51.363] [INFO] default - Acceso a: ruta /admin/asdas y método GET correcto
+[2023-05-02T22:46:51.375] [INFO] default - Acceso a: ruta /admin/asdsad y método GET correcto
+[2023-05-02T22:46:55.265] [INFO] default - Acceso a: ruta /admin/productos y método GET correcto
+[2023-05-02T22:46:55.406] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:55.968] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:46:56.096] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:46:56.693] [INFO] default - Acceso a: ruta /admin/asdas y método GET correcto
+[2023-05-02T22:46:56.726] [INFO] default - Acceso a: ruta /admin/asdsad y método GET correcto
+[2023-05-02T22:47:01.748] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:47:01.755] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:47:02.644] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:47:02.775] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:47:02.954] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:47:03.018] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:47:03.076] [INFO] default - Nuevo cliente socket conectado - id: 8BMCGuowuFtIIgEgAAAJ
+[2023-05-02T22:48:37.393] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-02T22:48:37.555] [INFO] default - Proceso #8552 del servidor esta escuchando en el puerto 8080
+[2023-05-02T22:48:38.303] [INFO] default - Nuevo cliente socket conectado - id: nOqAL95ht3o3RYOeAAAB
+[2023-05-02T22:48:45.266] [INFO] default - Acceso a: ruta /logout y método GET correcto
+[2023-05-02T22:48:45.888] [INFO] default - Acceso a: ruta /end y método GET correcto
+[2023-05-02T22:48:50.913] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T22:48:58.167] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:48:58.631] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:48:58.633] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:48:59.322] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:48:59.334] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:48:59.371] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:48:59.372] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:48:59.488] [INFO] default - Nuevo cliente socket conectado - id: Y8E8eYVy5jX-omj5AAAD
+[2023-05-02T22:49:00.002] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:49:00.027] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:49:03.934] [INFO] default - Acceso a: ruta /carrito/642cd5bda2f38ee833649282 y método POST correcto
+[2023-05-02T22:49:03.935] [INFO] default - Usuario autenticado gs
+[2023-05-02T22:52:04.602] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-02T22:52:04.789] [INFO] default - Proceso #9596 del servidor esta escuchando en el puerto 8080
+[2023-05-02T22:52:10.566] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T22:52:18.327] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:52:19.272] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:52:19.296] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:52:20.092] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:52:20.236] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:52:20.437] [INFO] default - Nuevo cliente socket conectado - id: LNJE60rlAI37kEaYAAAB
+[2023-05-02T22:52:20.548] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:52:20.628] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:52:21.369] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:52:21.460] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:52:33.604] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:52:33.605] [INFO] default - Usuario autenticado ds
+[2023-05-02T22:53:09.176] [INFO] default - Nuevo cliente socket conectado - id: qrF3zksb3tNsfCb_AAAD
+[2023-05-02T22:53:11.279] [INFO] default - Acceso a: ruta /logout y método GET correcto
+[2023-05-02T22:53:11.479] [INFO] default - Acceso a: ruta /end y método GET correcto
+[2023-05-02T22:53:49.974] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T22:53:58.412] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:53:58.586] [INFO] default - Acceso a: ruta /faillogin y método GET correcto
+[2023-05-02T22:54:10.818] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T22:54:11.280] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T22:54:11.281] [INFO] default - Usuario autenticado cj
+[2023-05-02T22:54:12.033] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T22:54:12.051] [INFO] default - Usuario autenticado cj
+[2023-05-02T22:54:12.080] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T22:54:12.084] [INFO] default - Usuario autenticado cj
+[2023-05-02T22:54:12.128] [INFO] default - Nuevo cliente socket conectado - id: 9m3TJ2pgkDR2EAmPAAAF
+[2023-05-02T22:54:12.549] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T22:54:12.694] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T22:54:20.185] [INFO] default - Acceso a: ruta /carrito/642cd64ca2f38ee833649289 y método POST correcto
+[2023-05-02T22:54:20.194] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:00:56.428] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-02T23:00:56.564] [INFO] default - Proceso #9768 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:00:57.347] [INFO] default - Nuevo cliente socket conectado - id: _78PLfDFQtn48LC4AAAB
+[2023-05-02T23:01:01.964] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T23:01:01.966] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:01:02.797] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T23:01:02.800] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:01:02.916] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:01:02.918] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:01:03.100] [INFO] default - Nuevo cliente socket conectado - id: V8VSqTGA5XOwf2UkAAAD
+[2023-05-02T23:01:03.631] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T23:01:04.071] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T23:01:18.637] [INFO] default - Acceso a: ruta /carrito/642cd5bda2f38ee833649282 y método POST correcto
+[2023-05-02T23:01:18.650] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:10:48.116] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-02T23:10:48.527] [INFO] default - Proceso #4884 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:10:50.000] [INFO] default - Nuevo cliente socket conectado - id: w-RS4kH7GXNfRHy9AAAB
+[2023-05-02T23:10:56.439] [INFO] default - Acceso a: ruta /carrito/642cd5bda2f38ee833649282 y método POST correcto
+[2023-05-02T23:10:56.446] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:17:04.660] [INFO] default - Proceso #7384 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:17:04.828] [INFO] default - Nuevo cliente socket conectado - id: Px-eFy7xxZhR6AbIAAAB
+[2023-05-02T23:18:06.202] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-02T23:18:06.355] [INFO] default - Proceso #8008 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:18:10.505] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T23:18:24.894] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T23:18:25.798] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T23:18:25.802] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:18:26.413] [INFO] default - Nuevo cliente socket conectado - id: zCN4et6c_UNtx_sGAAAB
+[2023-05-02T23:18:26.518] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T23:18:26.613] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:18:26.840] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:18:26.852] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:18:26.982] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-05-02T23:18:27.122] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T23:18:27.503] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T23:18:34.387] [INFO] default - Acceso a: ruta /carrito/642cd5bda2f38ee833649282 y método POST correcto
+[2023-05-02T23:18:34.394] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:20:36.563] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-02T23:20:36.884] [INFO] default - Proceso #9556 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:20:37.111] [INFO] default - Nuevo cliente socket conectado - id: xVLK-n9KTd6Co0C0AAAB
+[2023-05-02T23:21:30.259] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T23:21:34.476] [INFO] default - Acceso a: ruta /favicon.ico y método GET correcto
+[2023-05-02T23:21:40.248] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T23:21:50.710] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T23:21:50.715] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:21:51.128] [INFO] default - Nuevo cliente socket conectado - id: DtzWOYvdxGFk8HVMAAAD
+[2023-05-02T23:21:52.438] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T23:21:52.440] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:21:59.903] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T23:21:59.924] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T23:22:04.697] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:22:04.699] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:22:06.648] [INFO] default - Acceso a: ruta /carrito/642cd64ca2f38ee833649289 y método POST correcto
+[2023-05-02T23:22:06.651] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:45:51.611] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-02T23:45:51.751] [INFO] default - Proceso #8956 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:45:55.793] [INFO] default - Nuevo cliente socket conectado - id: IkDwSqauPjRf8xgxAAAB
+[2023-05-02T23:46:00.313] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T23:46:14.189] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T23:46:15.623] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T23:46:15.629] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:46:16.267] [INFO] default - Nuevo cliente socket conectado - id: wU6c3K6TJxlWiQ3nAAAD
+[2023-05-02T23:46:16.718] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T23:46:16.723] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:46:17.683] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T23:46:17.699] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T23:46:17.802] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:46:17.805] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:46:20.626] [INFO] default - Acceso a: ruta /carrito/642cd5bda2f38ee833649282 y método POST correcto
+[2023-05-02T23:46:20.632] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:47:14.350] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-02T23:47:14.842] [INFO] default - Proceso #5400 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:47:15.009] [INFO] default - Nuevo cliente socket conectado - id: CjM5PjoSwICCAp8gAAAB
+[2023-05-02T23:47:21.911] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T23:47:29.553] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T23:47:30.439] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T23:47:30.441] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:47:31.012] [INFO] default - Nuevo cliente socket conectado - id: 403SEXuw1XIZVcH8AAAD
+[2023-05-02T23:47:31.036] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T23:47:31.079] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:47:31.112] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:47:31.279] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:47:31.841] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T23:47:31.860] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T23:47:44.530] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:47:44.531] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:48:07.077] [INFO] default - Nuevo cliente socket conectado - id: PKmezGouY1vgvHqGAAAF
+[2023-05-02T23:48:12.099] [INFO] default - Acceso a: ruta /carrito/64433d2ef1d6d7fd5382ecdf y método POST correcto
+[2023-05-02T23:48:12.100] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:51:15.135] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-02T23:51:15.301] [INFO] default - Proceso #3004 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:51:15.525] [INFO] default - Nuevo cliente socket conectado - id: n8tqfustOq4FdCbHAAAB
+[2023-05-02T23:51:37.683] [INFO] default - Acceso a: ruta /carrito/64433d2ef1d6d7fd5382ecdf y método POST correcto
+[2023-05-02T23:51:37.706] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:54:45.528] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-02T23:56:26.242] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-02T23:57:20.306] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-02T23:58:07.503] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-02T23:58:07.649] [INFO] default - Proceso #8876 del servidor esta escuchando en el puerto 8080
+[2023-05-02T23:58:07.876] [INFO] default - Nuevo cliente socket conectado - id: vDlsbUPZIM0xtEzOAAAB
+[2023-05-02T23:58:17.628] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-02T23:58:26.558] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-02T23:58:27.453] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-02T23:58:27.455] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:58:27.921] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-02T23:58:27.925] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:58:27.973] [INFO] default - Nuevo cliente socket conectado - id: 1AzxsHsL1TbGybZ4AAAD
+[2023-05-02T23:58:28.149] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-02T23:58:28.164] [INFO] default - Usuario autenticado cj
+[2023-05-02T23:58:28.433] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-02T23:58:28.778] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-02T23:58:40.098] [INFO] default - Acceso a: ruta /carrito/64431dde825e4e93a23c2c06 y método POST correcto
+[2023-05-02T23:58:40.100] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:01:10.129] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-03T00:01:10.272] [INFO] default - Proceso #9484 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:01:10.359] [INFO] default - Nuevo cliente socket conectado - id: XOHYFUnGxe71bGycAAAB
+[2023-05-03T00:01:17.175] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:01:17.180] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:01:17.713] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:01:17.782] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:01:17.806] [INFO] default - Nuevo cliente socket conectado - id: lctUORnKATLd4HuSAAAD
+[2023-05-03T00:01:18.096] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:01:18.290] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:01:18.317] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:01:18.506] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:01:28.605] [INFO] default - Acceso a: ruta /carrito/64431aaa0bd7a5e7ec40070b y método POST correcto
+[2023-05-03T00:01:28.629] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:10:53.932] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-03T00:10:54.056] [INFO] default - Proceso #204 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:11:00.276] [INFO] default - Nuevo cliente socket conectado - id: Xt-qCpznOTIiy0s3AAAB
+[2023-05-03T00:11:07.158] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:11:07.160] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:11:08.065] [INFO] default - Nuevo cliente socket conectado - id: J9qVlHbE1TF-O9lQAAAD
+[2023-05-03T00:11:08.258] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:11:08.413] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:11:08.834] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:11:08.879] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:11:08.902] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:11:09.260] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:11:15.216] [INFO] default - Acceso a: ruta /carrito/64431aaa0bd7a5e7ec40070b y método POST correcto
+[2023-05-03T00:11:15.219] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:12:40.198] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-00.e0dov1u.mongodb.net
+[2023-05-03T00:12:40.378] [INFO] default - Proceso #8980 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:12:40.628] [INFO] default - Nuevo cliente socket conectado - id: 1WdbKju2n5YxBuv6AAAB
+[2023-05-03T00:12:51.957] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:12:51.964] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:12:52.841] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:12:52.867] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:12:53.316] [INFO] default - Nuevo cliente socket conectado - id: mdERWxiPoW6BofFyAAAD
+[2023-05-03T00:12:53.558] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:12:53.699] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:12:53.949] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:12:54.431] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:12:58.851] [INFO] default - Acceso a: ruta /carrito/642e12b0b5b98c9b4f8e7c17 y método POST correcto
+[2023-05-03T00:12:58.871] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:16:09.947] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-03T00:16:10.075] [INFO] default - Proceso #8692 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:16:13.569] [INFO] default - Nuevo cliente socket conectado - id: 9CdrWQSxFNqJ73nIAAAB
+[2023-05-03T00:17:18.940] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-03T00:17:19.071] [INFO] default - Proceso #9292 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:17:19.253] [INFO] default - Nuevo cliente socket conectado - id: UaBjp4l9t6pfb8j4AAAB
+[2023-05-03T00:17:24.893] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:17:24.896] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:17:25.812] [INFO] default - Nuevo cliente socket conectado - id: lvBA2X-AJ7HhaMOXAAAD
+[2023-05-03T00:17:25.952] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:17:25.954] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:17:26.357] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:17:26.361] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:17:26.829] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:17:26.928] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:17:39.144] [INFO] default - Acceso a: ruta /carrito/64431d90cb8106a286fd17fd y método POST correcto
+[2023-05-03T00:17:39.145] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:18:53.043] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-03T00:18:53.184] [INFO] default - Proceso #7608 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:18:53.732] [INFO] default - Nuevo cliente socket conectado - id: HwAuOyclmh1ibRGaAAAB
+[2023-05-03T00:18:59.178] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:18:59.180] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:18:59.970] [INFO] default - Nuevo cliente socket conectado - id: ilnpzaiU1MeguX70AAAD
+[2023-05-03T00:19:00.234] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:19:00.280] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:19:00.715] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:19:00.752] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:19:00.787] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:19:01.160] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:19:03.834] [INFO] default - Acceso a: ruta /carrito/64433d2ef1d6d7fd5382ecdf y método POST correcto
+[2023-05-03T00:19:03.877] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:19:04.287] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:19:04.288] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:19:22.839] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:19:22.840] [INFO] default - Usuario autenticado cj
+[2023-05-03T00:20:17.202] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-03T00:20:17.371] [INFO] default - Proceso #9856 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:20:43.572] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-03T00:21:10.362] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-03T00:21:11.453] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:21:11.459] [INFO] default - Usuario autenticado rp
+[2023-05-03T00:21:12.418] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:21:12.426] [INFO] default - Usuario autenticado rp
+[2023-05-03T00:21:12.444] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:21:12.448] [INFO] default - Usuario autenticado rp
+[2023-05-03T00:21:12.476] [INFO] default - Nuevo cliente socket conectado - id: SbR8aO2Q5s4VbUUrAAAB
+[2023-05-03T00:21:13.207] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:21:13.240] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:21:16.805] [INFO] default - Acceso a: ruta /carrito/64431dde825e4e93a23c2c06 y método POST correcto
+[2023-05-03T00:21:16.807] [INFO] default - Usuario autenticado rp
+[2023-05-03T00:21:17.246] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:21:17.247] [INFO] default - Usuario autenticado rp
+[2023-05-03T00:21:25.595] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:21:25.599] [INFO] default - Usuario autenticado rp
+[2023-05-03T00:22:14.814] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-03T00:22:14.985] [INFO] default - Proceso #10004 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:22:21.882] [INFO] default - Nuevo cliente socket conectado - id: QgHAXesLX5Re6wYUAAAB
+[2023-05-03T00:23:04.688] [INFO] default - Acceso a: ruta /register y método GET correcto
+[2023-05-03T00:23:29.314] [INFO] default - Acceso a: ruta /register y método POST correcto
+[2023-05-03T00:23:30.257] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:23:30.260] [INFO] default - Usuario autenticado om
+[2023-05-03T00:23:30.970] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:23:30.988] [INFO] default - Usuario autenticado om
+[2023-05-03T00:23:31.027] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:23:31.037] [INFO] default - Usuario autenticado om
+[2023-05-03T00:23:31.221] [INFO] default - Nuevo cliente socket conectado - id: 3pqtz9dT616J6UPmAAAD
+[2023-05-03T00:23:31.743] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:23:31.761] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:23:37.814] [INFO] default - Acceso a: ruta /carrito/6443232b525029194e8b78b1 y método POST correcto
+[2023-05-03T00:23:37.819] [INFO] default - Usuario autenticado om
+[2023-05-03T00:24:43.559] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-02.e0dov1u.mongodb.net
+[2023-05-03T00:24:43.690] [INFO] default - Proceso #428 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:24:43.921] [INFO] default - Nuevo cliente socket conectado - id: -eyDdZg6IjVZo3QiAAAB
+[2023-05-03T00:24:52.298] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:24:52.340] [INFO] default - Usuario autenticado om
+[2023-05-03T00:24:53.216] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:24:53.336] [INFO] default - Usuario autenticado om
+[2023-05-03T00:24:53.364] [INFO] default - Nuevo cliente socket conectado - id: ZBS9XmngX3T9yDoCAAAD
+[2023-05-03T00:24:53.666] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:24:53.669] [INFO] default - Usuario autenticado om
+[2023-05-03T00:24:54.109] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:24:54.133] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:24:59.701] [INFO] default - Acceso a: ruta /carrito/64431dde825e4e93a23c2c06 y método POST correcto
+[2023-05-03T00:24:59.707] [INFO] default - Usuario autenticado om
+[2023-05-03T00:25:00.142] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:25:00.143] [INFO] default - Usuario autenticado om
+[2023-05-03T00:25:10.862] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:25:10.866] [INFO] default - Usuario autenticado om
+[2023-05-03T00:25:15.304] [INFO] default - Nuevo cliente socket conectado - id: lP2xqGK_0Rqp8s0aAAAF
+[2023-05-03T00:25:17.759] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-03T00:25:32.737] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-03T00:25:33.268] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:25:33.269] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:25:33.962] [INFO] default - Nuevo cliente socket conectado - id: yu46S5Dp5fs4cy3YAAAH
+[2023-05-03T00:25:33.989] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:25:34.041] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:25:34.072] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:25:34.076] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:25:34.472] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:25:34.593] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:25:38.724] [INFO] default - Acceso a: ruta /carrito/6443224f4401eaabec159ed2 y método POST correcto
+[2023-05-03T00:25:38.725] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:18.332] [INFO] default - Mongodb conectado ac-glxxux7-shard-00-01.e0dov1u.mongodb.net
+[2023-05-03T00:31:18.475] [INFO] default - Proceso #9428 del servidor esta escuchando en el puerto 8080
+[2023-05-03T00:31:24.266] [INFO] default - Nuevo cliente socket conectado - id: TvvPzPAAm7TCCZGlAAAB
+[2023-05-03T00:31:24.893] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:31:24.896] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:25.926] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:31:25.935] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:26.046] [INFO] default - Nuevo cliente socket conectado - id: tFNxyDJZD06VeShcAAAD
+[2023-05-03T00:31:26.207] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:31:26.321] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:26.818] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:31:27.203] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:31:29.863] [INFO] default - Acceso a: ruta /carrito/64430e40d70ff668e8f1c543 y método POST correcto
+[2023-05-03T00:31:29.913] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:30.398] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:31:30.405] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:39.653] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:31:39.658] [INFO] default - Usuario autenticado ga
+[2023-05-03T00:31:44.353] [INFO] default - Nuevo cliente socket conectado - id: nqrqvjVyWSYxvMdjAAAF
+[2023-05-03T00:32:09.472] [INFO] default - Acceso a: ruta /login y método GET correcto
+[2023-05-03T00:32:17.797] [INFO] default - Acceso a: ruta /login y método POST correcto
+[2023-05-03T00:32:18.286] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:32:18.287] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:32:18.964] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:32:18.974] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:32:18.996] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:32:18.997] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:32:19.077] [INFO] default - Nuevo cliente socket conectado - id: rlgXnBdHsppBmb1dAAAH
+[2023-05-03T00:32:19.710] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:32:19.747] [INFO] default - Acceso a: ruta /asdsad y método GET correcto
+[2023-05-03T00:32:27.175] [INFO] default - Acceso a: ruta /carrito/64431d90cb8106a286fd17fd y método POST correcto
+[2023-05-03T00:32:27.176] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:32:27.553] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:32:27.554] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:32:35.314] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:32:35.318] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:34:24.384] [INFO] default - Acceso a: ruta /carrito/6451d5cb116c2ed1a045e2bd y método DELETE correcto
+[2023-05-03T00:34:24.404] [INFO] default - Acceso a: ruta /login y método DELETE correcto
+[2023-05-03T00:34:59.775] [INFO] default - Acceso a: ruta /carrito/6451d5cb116c2ed1a045e2bd y método GET correcto
+[2023-05-03T00:35:03.870] [INFO] default - Acceso a: ruta / y método GET correcto
+[2023-05-03T00:35:03.872] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:35:04.655] [INFO] default - Nuevo cliente socket conectado - id: TBADLb09ilv0G16cAAAJ
+[2023-05-03T00:35:04.927] [INFO] default - Acceso a: ruta /productos y método GET correcto
+[2023-05-03T00:35:04.950] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:35:05.010] [INFO] default - Acceso a: ruta /carrito y método GET correcto
+[2023-05-03T00:35:05.026] [INFO] default - Usuario autenticado gf
+[2023-05-03T00:35:05.357] [INFO] default - Acceso a: ruta /asdas y método GET correcto
+[2023-05-03T00:35:05.474] [INFO] default - Acceso a: ruta /asdsad y método GET correcto

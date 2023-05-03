@@ -14,7 +14,7 @@ async getCarritoByUser (username)  {
 };
 
 async createCarrito  (user)  {
-    return await this.carritoDao.save({ username: user, product: [] })
+    return await this.carritoDao.save({ username: user, productos: [] })
 };
 
 async deleteCarritoByUser (user) {
